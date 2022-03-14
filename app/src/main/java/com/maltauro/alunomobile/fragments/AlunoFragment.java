@@ -28,7 +28,6 @@ public class AlunoFragment extends Fragment {
     private Activity activity;
     private ConstraintLayout ctAluno;
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
