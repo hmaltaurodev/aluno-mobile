@@ -18,45 +18,20 @@
             android:orientation="vertical"
             android:layout_margin="10dp">
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+            <com.google.android.material.textview.MaterialTextView
+                android:text="@string/nome_placeholder"
+                android:id="@+id/text_view_nome_aluno"
+                android:textAppearance="@style/text_view_list_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:text="@string/text_view_ra"
-                    android:textAppearance="@style/text_view_list_cabecalho"
-                    android:layout_marginEnd="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/text_view_ra_aluno"
-                    android:textAppearance="@style/text_view_list_info"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:text="@string/text_view_nome"
-                    android:textAppearance="@style/text_view_list_cabecalho"
-                    android:layout_marginEnd="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/text_view_nome_aluno"
-                    android:textAppearance="@style/text_view_list_info"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:text="@string/ra_placeholder"
+                android:id="@+id/text_view_ra_aluno"
+                android:textAppearance="@style/text_view_list_sub_title"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -65,14 +40,13 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:text="@string/text_view_cpf"
-                    android:textAppearance="@style/text_view_list_cabecalho"
                     android:layout_marginEnd="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:text="@string/cpf_placeholder"
                     android:id="@+id/text_view_cpf_aluno"
-                    android:textAppearance="@style/text_view_list_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -85,34 +59,26 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:text="@string/text_view_data_nascimento"
-                    android:textAppearance="@style/text_view_list_cabecalho"
                     android:layout_marginEnd="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:text="@string/data_placeholder"
                     android:id="@+id/text_view_data_nascimento_aluno"
-                    android:textAppearance="@style/text_view_list_info"
+                    android:layout_marginEnd="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
 
                 <com.google.android.material.textview.MaterialTextView
                     android:text="@string/text_view_data_matricula"
-                    android:textAppearance="@style/text_view_list_cabecalho"
                     android:layout_marginEnd="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:text="@string/data_placeholder"
                     android:id="@+id/text_view_data_matricula_aluno"
-                    android:textAppearance="@style/text_view_list_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
