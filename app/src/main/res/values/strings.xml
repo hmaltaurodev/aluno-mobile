@@ -43,6 +43,10 @@
     <string name="text_view_ra">RA:</string>
     <string name="text_view_cpf">CPF:</string>
     <string name="text_view_nome">Nome:</string>
-    <string name="text_view_data_matricula">Data da Matrícula:</string>
-    <string name="text_view_data_nascimento">Data de Nascimento:</string>
+    <string name="text_view_data_matricula">Dt. Matrícula:</string>
+    <string name="text_view_data_nascimento">Dt. Nascimento:</string>
+    <string name="nome_placeholder">Nome Sobrenome</string>
+    <string name="ra_placeholder">00000000</string>
+    <string name="cpf_placeholder">000.000.000-00</string>
+    <string name="data_placeholder">00/00/0000</string>
 </resources>
