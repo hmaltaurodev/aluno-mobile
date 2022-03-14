@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/nav_home" />
+    </group>
+
+    <item android:title="@string/tiltle_cadastros">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_aluno"
+                    android:icon="@drawable/ic_aluno"
+                    android:title="@string/nav_aluno" />
+                <item
+                    android:id="@+id/nav_professor"
+                    android:icon="@drawable/ic_professor"
+                    android:title="@string/nav_professor" />
+                <item
+                    android:id="@+id/nav_disciplina"
+                    android:icon="@drawable/ic_disciplina"
+                    android:title="@string/nav_disciplina" />
+                <item
+                    android:id="@+id/nav_turma"
+                    android:icon="@drawable/ic_turma"
+                    android:title="@string/nav_turma" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="@string/tiltle_lancamentos">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_notas"
+                    android:icon="@drawable/ic_notas"
+                    android:title="@string/nav_notas" />
+                <item
+                    android:id="@+id/nav_frequencias"
+                    android:icon="@drawable/ic_frequencias"
+                    android:title="@string/nav_frequencias" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="@string/tiltle_sistema">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_sobre"
+                    android:icon="@drawable/ic_sobre"
+                    android:title="@string/nav_sobre" />
+            </group>
+        </menu>
+    </item>
+</menu>

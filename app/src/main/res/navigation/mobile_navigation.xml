@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.maltauro.alunomobile.fragments.HomeFragment"
+        android:label="@string/nav_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_aluno"
+        android:name="com.maltauro.alunomobile.fragments.AlunoFragment"
+        android:label="@string/nav_aluno"
+        tools:layout="@layout/fragment_aluno" />
+
+    <fragment
+        android:id="@+id/nav_professor"
+        android:name="com.maltauro.alunomobile.fragments.ProfessorFragment"
+        android:label="@string/nav_professor"
+        tools:layout="@layout/fragment_professor" />
+
+    <fragment
+        android:id="@+id/nav_disciplina"
+        android:name="com.maltauro.alunomobile.fragments.DisciplinaFragment"
+        android:label="@string/nav_disciplina"
+        tools:layout="@layout/fragment_disciplina" />
+
+    <fragment
+        android:id="@+id/nav_turma"
+        android:name="com.maltauro.alunomobile.fragments.TurmaFragment"
+        android:label="@string/nav_turma"
+        tools:layout="@layout/fragment_turma" />
+
+    <fragment
+        android:id="@+id/nav_notas"
+        android:name="com.maltauro.alunomobile.fragments.NotaFragment"
+        android:label="@string/nav_turma"
+        tools:layout="@layout/fragment_nota" />
+
+    <fragment
+        android:id="@+id/nav_frequencias"
+        android:name="com.maltauro.alunomobile.fragments.FrequenciaFragment"
+        android:label="@string/nav_turma"
+        tools:layout="@layout/fragment_frequencia" />
+
+    <fragment
+        android:id="@+id/nav_sobre"
+        android:name="com.maltauro.alunomobile.fragments.SobreFragment"
+        android:label="@string/nav_sobre"
+        tools:layout="@layout/fragment_sobre" />
+
+</navigation>

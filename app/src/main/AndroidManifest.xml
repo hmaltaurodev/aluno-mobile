@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.maltauro.alunomobile">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AlunoMobile">
+        <activity
+            android:name=".activities.CadastroTurmaActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false"
+            android:label="@string/cad_turma" />
+        <activity
+            android:name=".activities.CadastroDisciplinaActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false"
+            android:label="@string/cad_disciplina" />
+        <activity
+            android:name=".activities.CadastroProfessorActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false"
+            android:label="@string/cad_professor" />
+        <activity
+            android:name=".activities.CadastroAlunoActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false"
+            android:label="@string/cad_aluno" />
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true"
+            android:theme="@style/Theme.AlunoMobile.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
