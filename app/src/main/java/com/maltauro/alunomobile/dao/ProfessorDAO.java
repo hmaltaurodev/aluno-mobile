@@ -27,7 +27,7 @@ public class ProfessorDAO {
         }
     }
 
-    public static List<Professor> getListAlunos(String where, String[] whererArgs, String orderBy) {
+    public static List<Professor> getListProfessores(String where, String[] whererArgs, String orderBy) {
         List<Professor> professores = new ArrayList<>();
 
         try {
