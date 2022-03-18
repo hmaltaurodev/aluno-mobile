@@ -1,7 +1,6 @@
 package com.maltauro.alunomobile.models;
 
 import com.orm.SugarRecord;
-import java.util.Objects;
 
 public class Aluno extends SugarRecord {
 
