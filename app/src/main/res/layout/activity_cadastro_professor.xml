@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/gray"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -13,10 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/ra"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        style="@style/text_input_layout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -32,10 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/nome"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        style="@style/text_input_layout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -50,10 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/cpf"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        style="@style/text_input_layout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -69,10 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/data_nascimento"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        style="@style/text_input_layout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
