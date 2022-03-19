@@ -26,6 +26,10 @@
                     android:icon="@drawable/ic_disciplina"
                     android:title="@string/nav_disciplina" />
                 <item
+                    android:id="@+id/nav_curso"
+                    android:icon="@drawable/ic_curso"
+                    android:title="@string/nav_curso" />
+                <item
                     android:id="@+id/nav_turma"
                     android:icon="@drawable/ic_turma"
                     android:title="@string/nav_turma" />
