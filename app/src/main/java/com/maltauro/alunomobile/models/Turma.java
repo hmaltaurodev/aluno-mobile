@@ -1,7 +1,6 @@
 package com.maltauro.alunomobile.models;
 
 import androidx.annotation.NonNull;
-
 import com.maltauro.alunomobile.enums.AnoAcademico;
 import com.maltauro.alunomobile.enums.RegimeAcademico;
 import com.orm.SugarRecord;
@@ -9,14 +8,14 @@ import com.orm.SugarRecord;
 public class Turma extends SugarRecord {
 
     private Curso curso;
-    private AnoAcademico anoAcademico;
-    private RegimeAcademico regimeAcademico;
+    private int anoAcademico;
+    private int regimeAcademico;
     private int anoPeriodo;
     private int semestrePeriodo;
 
     public Turma() { }
 
-    public Turma(Curso curso, AnoAcademico anoAcademico, RegimeAcademico regimeAcademico, int anoPeriodo, int semestrePeriodo) {
+    public Turma(Curso curso, int anoAcademico, int regimeAcademico, int anoPeriodo, int semestrePeriodo) {
         this.curso = curso;
         this.anoAcademico = anoAcademico;
         this.regimeAcademico = regimeAcademico;
@@ -33,19 +32,19 @@ public class Turma extends SugarRecord {
     }
 
     public AnoAcademico getAnoAcademico() {
-        return anoAcademico;
+        return AnoAcademico.getById(anoAcademico);
     }
 
     public void setAnoAcademico(AnoAcademico anoAcademico) {
-        this.anoAcademico = anoAcademico;
+        this.anoAcademico = anoAcademico.getId();
     }
 
     public RegimeAcademico getRegime() {
-        return regimeAcademico;
+        return RegimeAcademico.getById(regimeAcademico);
     }
 
     public void setRegime(RegimeAcademico regimeAcademico) {
-        this.regimeAcademico = regimeAcademico;
+        this.regimeAcademico = regimeAcademico.getId();
     }
 
     public int getAnoPeriodo() {
