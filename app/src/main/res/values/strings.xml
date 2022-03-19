@@ -49,4 +49,15 @@
     <string name="ra_placeholder">00000000</string>
     <string name="cpf_placeholder">000.000.000-00</string>
     <string name="data_placeholder">00/00/0000</string>
+    <string name="nav_curso">Curso</string>
+    <string name="codigo_mec">Código MEC</string>
+    <string name="descricao">Descrição</string>
+    <string name="grau_academico">Grau Acadêmico</string>
+    <string name="selecionar_grau_academico">Selecionar Grau Acadêmico</string>
+    <string name="cad_curso">Cadastro de Curso</string>
+    <string name="descricao_placeholder">Descrição</string>
+    <string name="codigo_mec_placeholder">0000000</string>
+    <string name="text_view_codigo_mec">Código MEC:</string>
+    <string name="text_view_grau_academico">Grau:</string>
+    <string name="grau_academico_placeholder">Grau Acadêmico</string>
 </resources>
