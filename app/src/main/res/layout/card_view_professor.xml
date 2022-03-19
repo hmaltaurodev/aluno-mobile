@@ -8,9 +8,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/cv_professor"
-        app:cardElevation="7dp"
-        app:cardUseCompatPadding="true">
+        app:cardCornerRadius="3dp"
+        android:layout_margin="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,12 +39,14 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:text="@string/text_view_cpf"
+                    android:textColor="@color/gray_dark"
                     android:layout_marginEnd="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:text="@string/cpf_placeholder"
+                    android:textColor="@color/gray_dark"
                     android:id="@+id/text_view_cpf_professor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -59,12 +60,14 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:text="@string/text_view_data_nascimento"
+                    android:textColor="@color/gray_dark"
                     android:layout_marginEnd="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:text="@string/data_placeholder"
+                    android:textColor="@color/gray_dark"
                     android:id="@+id/text_view_data_nascimento_professor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
