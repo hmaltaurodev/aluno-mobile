@@ -1,19 +1,37 @@
 package com.maltauro.alunomobile.enums;
 
+import androidx.annotation.NonNull;
+
 public enum AnoAcademico {
-    PRIMEIRO("1º Ano"),
-    SEGUNDO("2º Ano"),
-    TERCEIRO("3º Ano"),
-    QUARTO("4º Ano"),
-    QUINTO("5º Ano");
+    PRIMEIRO("1º Ano", 1),
+    SEGUNDO("2º Ano", 2),
+    TERCEIRO("3º Ano", 3),
+    QUARTO("4º Ano", 4),
+    QUINTO("5º Ano", 5);
 
-    private String descricao;
+    private final String descricao;
+    private final int id;
 
-    AnoAcademico(String descricao){
+    AnoAcademico(String descricao, int id) {
         this.descricao = descricao;
+        this.id = id;
     }
 
-    public String getDescricao() {
-        return descricao;
+    @NonNull
+    @Override
+    public String toString() {
+        return this.descricao;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public static AnoAcademico getById(int id) {
+        for (AnoAcademico anoAcademico : values())
+            if (anoAcademico.id == id)
+                return anoAcademico;
+
+        return null;
     }
 }
