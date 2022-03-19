@@ -10,30 +10,35 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AlunoMobile">
         <activity
-            android:name=".activities.CadastroTurmaActivity"
-            android:windowSoftInputMode="adjustResize"
+            android:name=".activities.CadastroCursoActivity"
             android:exported="false"
-            android:label="@string/cad_turma" />
+            android:label="@string/cad_curso"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.CadastroTurmaActivity"
+            android:exported="false"
+            android:label="@string/cad_turma"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".activities.CadastroDisciplinaActivity"
-            android:windowSoftInputMode="adjustResize"
             android:exported="false"
-            android:label="@string/cad_disciplina" />
+            android:label="@string/cad_disciplina"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".activities.CadastroProfessorActivity"
-            android:windowSoftInputMode="adjustResize"
             android:exported="false"
-            android:label="@string/cad_professor" />
+            android:label="@string/cad_professor"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".activities.CadastroAlunoActivity"
-            android:windowSoftInputMode="adjustResize"
             android:exported="false"
-            android:label="@string/cad_aluno" />
+            android:label="@string/cad_aluno"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="adjustResize"
             android:exported="true"
-            android:theme="@style/Theme.AlunoMobile.NoActionBar">
+            android:theme="@style/Theme.AlunoMobile.NoActionBar"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
