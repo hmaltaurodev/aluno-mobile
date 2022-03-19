@@ -8,11 +8,11 @@ public class Curso extends SugarRecord {
 
     private int codigoMEC;
     private String descricao;
-    private GrauAcademico grauAcademico;
+    private int grauAcademico;
 
     public Curso() { }
 
-    public Curso(int codigoMEC, String descricao, GrauAcademico grauAcademico) {
+    public Curso(int codigoMEC, String descricao, int grauAcademico) {
         this.codigoMEC = codigoMEC;
         this.descricao = descricao;
         this.grauAcademico = grauAcademico;
@@ -34,12 +34,12 @@ public class Curso extends SugarRecord {
         this.descricao = descricao;
     }
 
-    public GrauAcademico getGrau() {
-        return grauAcademico;
+    public GrauAcademico getGrauAcademico() {
+        return GrauAcademico.getById(grauAcademico);
     }
 
-    public void setGrau(GrauAcademico grauAcademico) {
-        this.grauAcademico = grauAcademico;
+    public void setGrauAcademico(GrauAcademico grauAcademico) {
+        this.grauAcademico = grauAcademico.getId();
     }
 
     @NonNull
