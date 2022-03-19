@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/gray"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/ln_cadastro_curso"
+    tools:context=".activities.CadastroCursoActivity">
+
+    <!--Código MEC-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/codigo_mec"
+        style="@style/text_input_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="7"
+            android:id="@+id/edt_codigo_mec_curso"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Nome-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/descricao"
+        style="@style/text_input_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:id="@+id/edt_descricao_curso"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Grau Acadêmico-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:hint="@string/descricao"
+        style="@style/layout_spinner">
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/sp_grau_academico"
+            app:ms_floatingLabelText="@string/grau_academico"
+            app:ms_hint="@string/grau_academico"
+            style="@style/material_spinner"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_grava_curso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/color_primary"
+            android:src="@drawable/ic_grava"
+            android:layout_margin="10dp"
+            app:tint="@null" />
+
+    </LinearLayout>
+
+</LinearLayout>
