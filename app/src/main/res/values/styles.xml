@@ -23,7 +23,35 @@
     </style>
 
     <style name="text_view_list_info" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="text_input_layout" parent="@android:style/TextAppearance">
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="boxCornerRadiusTopStart">3dp</item>
+        <item name="boxCornerRadiusTopEnd">3dp</item>
+        <item name="boxCornerRadiusBottomStart">3dp</item>
+        <item name="boxCornerRadiusBottomEnd">3dp</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeWidth">0dp</item>
+    </style>
+
+    <style name="layout_spinner" parent="@android:style/TextAppearance">
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+    </style>
+
+    <style name="material_spinner" parent="@android:style/TextAppearance">
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="ms_arrowColor">@color/gray_dark</item>
+        <item name="ms_hintColor">@color/gray_dark</item>
+        <item name="ms_baseColor">@color/gray_dark</item>
+        <item name="ms_multiline">false</item>
     </style>
 
 </resources>
