@@ -28,11 +28,11 @@
                 android:text="@string/ra_placeholder"
                 android:id="@+id/text_view_ra_aluno"
                 android:textAppearance="@style/text_view_list_sub_title"
-                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <LinearLayout
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
