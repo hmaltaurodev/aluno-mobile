@@ -42,12 +42,14 @@
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginStart">10dp</item>
         <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="material_spinner" parent="@android:style/TextAppearance">
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginStart">10dp</item>
         <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:layout_marginBottom">-5dp</item>
         <item name="ms_arrowColor">@color/gray_dark</item>
         <item name="ms_hintColor">@color/gray_dark</item>
         <item name="ms_baseColor">@color/gray_dark</item>
