@@ -63,4 +63,14 @@
     <string name="hora_aula">Hora-aula</string>
     <string name="quantidade_aulas">Quantidade de aulas</string>
     <string name="professor">Professor</string>
+    <string name="text_view_professor">Professor:</string>
+    <string name="text_view_horas_aulas">Horas-aulas:</string>
+    <string name="horas_aulas_placeholder">00:00</string>
+    <string name="text_view_quantidade_aulas">Quantidade de aulas:</string>
+    <string name="quantidade_aulas_placeholder">00</string>
+    <string name="curso_placeholder">0000/0 - Curso Descrição</string>
+    <string name="ano_academico_placeholder">1º Ano</string>
+    <string name="text_view_exibir_detalhes">Clique para exibir os detalhes</string>
+    <string name="status_placeholder">Status</string>
+    <string name="periodo_placeholder">0000/0</string>
 </resources>
