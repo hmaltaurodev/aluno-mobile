@@ -21,7 +21,7 @@ public class CursoAdapter extends RecyclerView.Adapter<CursoAdapter.CursoViewHol
         this.context = context;
     }
 
-    public static class CursoViewHolder extends  RecyclerView.ViewHolder {
+    public static class CursoViewHolder extends RecyclerView.ViewHolder {
 
         MaterialTextView textViewCodigoMecCurso;
         MaterialTextView textViewDescricaoCurso;
