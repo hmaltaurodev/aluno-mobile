@@ -60,4 +60,7 @@
     <string name="text_view_codigo_mec">Código MEC:</string>
     <string name="text_view_grau_academico">Grau:</string>
     <string name="grau_academico_placeholder">Grau Acadêmico</string>
+    <string name="hora_aula">Hora-aula</string>
+    <string name="quantidade_aulas">Quantidade de aulas</string>
+    <string name="professor">Professor</string>
 </resources>
