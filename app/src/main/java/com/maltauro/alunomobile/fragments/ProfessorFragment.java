@@ -19,7 +19,6 @@ import com.maltauro.alunomobile.adapters.ProfessorAdapter;
 import com.maltauro.alunomobile.dao.ProfessorDAO;
 import com.maltauro.alunomobile.models.Professor;
 import com.maltauro.alunomobile.utils.Util;
-
 import java.util.List;
 
 public class ProfessorFragment extends Fragment {
@@ -31,11 +30,10 @@ public class ProfessorFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         activity = requireActivity();
-
         ctProfessor = view.findViewById(R.id.ct_professor);
 
-        FloatingActionButton fab_add_professor = view.findViewById(R.id.fab_add_professor);
-        fab_add_professor.setOnClickListener(view1 -> addProfessor());
+        FloatingActionButton fabAddProfessor = view.findViewById(R.id.fab_add_professor);
+        fabAddProfessor.setOnClickListener(view1 -> addProfessor());
 
         atualizaListaProfessores();
     }
@@ -54,9 +52,9 @@ public class ProfessorFragment extends Fragment {
         List<Professor> professores;
         professores = ProfessorDAO.getListProfessores("", new String[]{}, "nome asc");
 
-        RecyclerView rv_lista_professores = activity.findViewById(R.id.rv_lista_professores);
-        rv_lista_professores.setLayoutManager(new LinearLayoutManager(activity));
-        rv_lista_professores.setAdapter(new ProfessorAdapter(professores, activity));
+        RecyclerView rvListaProfessores = activity.findViewById(R.id.rv_lista_professores);
+        rvListaProfessores.setLayoutManager(new LinearLayoutManager(activity));
+        rvListaProfessores.setAdapter(new ProfessorAdapter(professores, activity));
     }
 
     @Override

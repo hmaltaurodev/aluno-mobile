@@ -1,13 +1,11 @@
 package com.maltauro.alunomobile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.constraintlayout.widget.ConstraintLayout;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.maltauro.alunomobile.R;
@@ -15,9 +13,7 @@ import com.maltauro.alunomobile.dao.CursoDAO;
 import com.maltauro.alunomobile.enums.GrauAcademico;
 import com.maltauro.alunomobile.models.Curso;
 import com.maltauro.alunomobile.utils.Util;
-
 import java.util.Objects;
-
 import fr.ganfra.materialspinner.MaterialSpinner;
 
 public class CadastroCursoActivity extends AppCompatActivity {
@@ -25,7 +21,7 @@ public class CadastroCursoActivity extends AppCompatActivity {
     private TextInputEditText edtCodigoMECCurso;
     private TextInputEditText edtDescricaoCurso;
     private MaterialSpinner spGrauAcademico;
-    private LinearLayout lnCadastroCurso;
+    private ConstraintLayout ctCadastroCurso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +32,7 @@ public class CadastroCursoActivity extends AppCompatActivity {
 
         edtCodigoMECCurso = findViewById(R.id.edt_codigo_mec_curso);
         edtDescricaoCurso = findViewById(R.id.edt_descricao_curso);
-        lnCadastroCurso = findViewById(R.id.ln_cadastro_curso);
+        ctCadastroCurso = findViewById(R.id.ct_cadastro_curso);
 
         FloatingActionButton fab_grava_curso = findViewById(R.id.fab_grava_curso);
         fab_grava_curso.setOnClickListener(view -> gravaCurso());
@@ -85,7 +81,7 @@ public class CadastroCursoActivity extends AppCompatActivity {
                 finish();
             }
             else
-                Util.showSnackBar(lnCadastroCurso, "Erro ao salvar o curso, verifique o log!");
+                Util.showSnackBar(ctCadastroCurso, "Erro ao salvar o curso, verifique o log!");
         }
     }
 

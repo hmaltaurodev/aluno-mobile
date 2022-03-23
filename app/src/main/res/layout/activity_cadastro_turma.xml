@@ -1,10 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/gray"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/ct_cadastro_turma"
     tools:context=".activities.CadastroTurmaActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--Curso-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/layout_spinner">
+
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/sp_grade_curricular_turma"
+                app:ms_floatingLabelText="@string/grade_curricular"
+                app:ms_hint="@string/grade_curricular"
+                style="@style/material_spinner"/>
+
+        </LinearLayout>
+
+        <!--Ano Período-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/ano_periodo"
+            style="@style/text_input_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:maxLength="4"
+                android:id="@+id/edt_ano_periodo_turma"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Alunos-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                style="@style/layout_spinner">
+
+                <fr.ganfra.materialspinner.MaterialSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/sp_alunos_turma"
+                    app:ms_floatingLabelText="@string/alunos"
+                    app:ms_hint="@string/alunos"
+                    style="@style/material_spinner"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab_add_alunos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/color_primary"
+                    app:shapeAppearanceOverlay="@style/fab_square"
+                    android:src="@drawable/ic_add"
+                    app:tint="@null" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_aluno_turma"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="bottom|end"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_grava_turma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/color_primary"
+            android:src="@drawable/ic_grava"
+            android:layout_margin="10dp"
+            app:tint="@null" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,7 @@ public class DisciplinaDAO {
             return disciplina.save();
         }
         catch (Exception ex) {
-            Log.e("Erro", "Erro ao salvar o disciplina: " + ex.getMessage());
+            Log.e("Erro", "Erro ao salvar a disciplina: " + ex.getMessage());
             return -1;
         }
     }
@@ -22,7 +22,7 @@ public class DisciplinaDAO {
             return Disciplina.findById(Disciplina.class, id);
         }
         catch (Exception ex) {
-            Log.e("Erro", "Erro ao buscar o disciplina: " + ex.getMessage());
+            Log.e("Erro", "Erro ao buscar a disciplina: " + ex.getMessage());
             return null;
         }
     }
@@ -45,7 +45,7 @@ public class DisciplinaDAO {
             return Disciplina.delete(disciplina);
         }
         catch (Exception ex) {
-            Log.e("Erro", "Erro ao deletar o disciplina: " + ex.getMessage());
+            Log.e("Erro", "Erro ao deletar a disciplina: " + ex.getMessage());
             return false;
         }
     }

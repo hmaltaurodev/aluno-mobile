@@ -73,4 +73,18 @@
     <string name="text_view_exibir_detalhes">Clique para exibir os detalhes</string>
     <string name="status_placeholder">Status</string>
     <string name="periodo_placeholder">0000/0</string>
+    <string name="curso">Curso</string>
+    <string name="ano_academico">Ano Acadêmico</string>
+    <string name="regime_academico">Regime Acadêmico</string>
+    <string name="ano_periodo">Ano Período</string>
+    <string name="semestre_periodo">Semestre Período</string>
+    <string name="alunos">Alunos</string>
+    <string name="disciplinas">Disciplinas</string>
+    <string name="nav_grade_curricular">Grade Curricular</string>
+    <string name="detalhe_turma">Detalhe da Turma</string>
+    <string name="cad_grade_curricular">Cadastro de Grade Curricular</string>
+    <string name="grade_curricular">Grade Curricular</string>
+    <string name="ano_semestre_academico_placeholder">1º Ano/1º Semestre</string>
+    <string name="ano_descricao_placeholder">0000 - Descrição</string>
+    <string name="sw_ativo">Ativo</string>
 </resources>

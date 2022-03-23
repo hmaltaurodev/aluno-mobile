@@ -1,6 +1,7 @@
 package com.maltauro.alunomobile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -8,7 +9,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
-import android.widget.LinearLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.maltauro.alunomobile.R;
@@ -25,7 +25,7 @@ public class CadastroProfessorActivity extends AppCompatActivity {
     private TextInputEditText edtNomeProfessor;
     private TextInputEditText edtCpfProfessor;
     private TextInputEditText edtDataNascimentoProfessor;
-    private LinearLayout lnCadastroProfessor;
+    private ConstraintLayout ctCadastroProfessor;
 
     private int dia;
     private int mes;
@@ -42,7 +42,7 @@ public class CadastroProfessorActivity extends AppCompatActivity {
         edtNomeProfessor = findViewById(R.id.edt_nome_professor);
         edtCpfProfessor = findViewById(R.id.edt_cpf_professor);
         edtDataNascimentoProfessor = findViewById(R.id.edt_data_nascimento_professor);
-        lnCadastroProfessor = findViewById(R.id.ln_cadastro_professor);
+        ctCadastroProfessor = findViewById(R.id.ct_cadastro_professor);
 
         edtCpfProfessor.addTextChangedListener(Mask.insert(edtCpfProfessor, Mask.maskCPF));
 
@@ -93,7 +93,7 @@ public class CadastroProfessorActivity extends AppCompatActivity {
                 finish();
             }
             else
-                Util.showSnackBar(lnCadastroProfessor, "Erro ao salvar o professor, verifique o log!");
+                Util.showSnackBar(ctCadastroProfessor, "Erro ao salvar o professor, verifique o log!");
         }
     }
 

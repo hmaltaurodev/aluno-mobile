@@ -1,5 +1,6 @@
 package com.maltauro.alunomobile.adapters;
 
+import static com.maltauro.alunomobile.utils.Util.raPad;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,7 +52,7 @@ public class AlunoAdapter extends RecyclerView.Adapter<AlunoAdapter.AlunoViewHol
     public void onBindViewHolder(@NonNull AlunoViewHolder holder, int position) {
         Aluno aluno = alunos.get(position);
 
-        holder.textViewRaAluno.setText(String.valueOf(aluno.getRa()));
+        holder.textViewRaAluno.setText(raPad(String.valueOf(aluno.getRa())));
         holder.textViewNomeAluno.setText(aluno.getNome());
         holder.textViewCpfAluno.setText(aluno.getCpf());
         holder.textViewDataNascimentoAluno.setText(aluno.getDataNascimento());

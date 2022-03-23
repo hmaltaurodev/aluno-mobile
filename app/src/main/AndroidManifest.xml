@@ -10,6 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AlunoMobile">
         <activity
+            android:name=".activities.DetalheTurmaActivity"
+            android:exported="false"
+            android:label="@string/detalhe_turma"
+            android:windowSoftInputMode="adjustResize"  />
+        <activity
+            android:name=".activities.CadastroGradeCurricularActivity"
+            android:exported="false"
+            android:label="@string/cad_grade_curricular"
+            android:windowSoftInputMode="adjustResize"  />
+        <activity
             android:name=".activities.CadastroCursoActivity"
             android:exported="false"
             android:label="@string/cad_curso"
@@ -41,7 +51,6 @@
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

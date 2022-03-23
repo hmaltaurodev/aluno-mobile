@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.maltauro.alunomobile.R;
 import com.maltauro.alunomobile.activities.CadastroAlunoActivity;
@@ -20,7 +19,6 @@ import com.maltauro.alunomobile.adapters.AlunoAdapter;
 import com.maltauro.alunomobile.dao.AlunoDAO;
 import com.maltauro.alunomobile.models.Aluno;
 import com.maltauro.alunomobile.utils.Util;
-
 import java.util.List;
 
 public class AlunoFragment extends Fragment {
@@ -32,11 +30,10 @@ public class AlunoFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         activity = requireActivity();
-
         ctAluno = view.findViewById(R.id.ct_aluno);
 
-        FloatingActionButton fab_add_aluno = view.findViewById(R.id.fab_add_aluno);
-        fab_add_aluno.setOnClickListener(view1 -> addAluno());
+        FloatingActionButton fabAddAluno = view.findViewById(R.id.fab_add_aluno);
+        fabAddAluno.setOnClickListener(view1 -> addAluno());
 
         atualizaListaAlunos();
     }
@@ -52,12 +49,11 @@ public class AlunoFragment extends Fragment {
     }
 
     public void atualizaListaAlunos() {
-        List<Aluno> alunos;
-        alunos = AlunoDAO.getListAlunos("", new String[]{}, "nome asc");
+        List<Aluno> alunos = AlunoDAO.getListAlunos("", new String[]{}, "nome asc");
 
-        RecyclerView rv_lista_alunos = activity.findViewById(R.id.rv_lista_alunos);
-        rv_lista_alunos.setLayoutManager(new LinearLayoutManager(activity));
-        rv_lista_alunos.setAdapter(new AlunoAdapter(alunos, activity));
+        RecyclerView rvListaAlunos = activity.findViewById(R.id.rv_lista_alunos);
+        rvListaAlunos.setLayoutManager(new LinearLayoutManager(activity));
+        rvListaAlunos.setAdapter(new AlunoAdapter(alunos, activity));
     }
 
     @Override

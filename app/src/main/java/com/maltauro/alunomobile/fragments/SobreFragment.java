@@ -23,9 +23,9 @@ public class SobreFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TextView label_sobre = view.findViewById(R.id.label_sobre);
+        TextView labelSobre = view.findViewById(R.id.label_sobre);
         Resources resources = getResources();
 
-        label_sobre.setText(String.format(resources.getString(R.string.app_versao), BuildConfig.VERSION_NAME));
+        labelSobre.setText(String.format(resources.getString(R.string.app_versao), BuildConfig.VERSION_NAME));
     }
 }

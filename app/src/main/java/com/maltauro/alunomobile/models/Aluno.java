@@ -1,5 +1,7 @@
 package com.maltauro.alunomobile.models;
 
+import static com.maltauro.alunomobile.utils.Util.raPad;
+import androidx.annotation.NonNull;
 import com.orm.SugarRecord;
 
 public class Aluno extends SugarRecord {
@@ -11,14 +13,6 @@ public class Aluno extends SugarRecord {
     private String dataMatricula;
 
     public Aluno() { }
-
-    public Aluno(int ra, String nome, String cpf, String dataNascimento, String dataMatricula) {
-        this.ra = ra;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.dataNascimento = dataNascimento;
-        this.dataMatricula = dataMatricula;
-    }
 
     public int getRa() {
         return ra;
@@ -58,5 +52,11 @@ public class Aluno extends SugarRecord {
 
     public void setDataMatricula(String dataMatricula) {
         this.dataMatricula = dataMatricula;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return String.format("%s - %s", raPad(String.valueOf(this.ra)), this.nome);
     }
 }

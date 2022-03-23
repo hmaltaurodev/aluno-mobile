@@ -1,13 +1,11 @@
 package com.maltauro.alunomobile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.constraintlayout.widget.ConstraintLayout;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.maltauro.alunomobile.R;
@@ -16,10 +14,8 @@ import com.maltauro.alunomobile.dao.ProfessorDAO;
 import com.maltauro.alunomobile.models.Disciplina;
 import com.maltauro.alunomobile.models.Professor;
 import com.maltauro.alunomobile.utils.Util;
-
 import java.util.List;
 import java.util.Objects;
-
 import fr.ganfra.materialspinner.MaterialSpinner;
 
 public class CadastroDisciplinaActivity extends AppCompatActivity {
@@ -28,7 +24,7 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
     private TextInputEditText edtHorasAulasDisciplina;
     private TextInputEditText edtQuantidadeAulasDisciplina;
     private MaterialSpinner spProfessorDisciplina;
-    private LinearLayout lnCadastroDisciplina;
+    private ConstraintLayout ctCadastroDisciplina;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +36,7 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
         edtDescricaoDisciplina = findViewById(R.id.edt_descricao_disciplina);
         edtHorasAulasDisciplina = findViewById(R.id.edt_hora_aula_disciplina);
         edtQuantidadeAulasDisciplina = findViewById(R.id.edt_quantidade_aula_disciplina);
-        lnCadastroDisciplina = findViewById(R.id.ln_cadastro_disciplina);
+        ctCadastroDisciplina = findViewById(R.id.ct_cadastro_disciplina);
 
         FloatingActionButton fab_grava_disciplina = findViewById(R.id.fab_grava_disciplina);
         fab_grava_disciplina.setOnClickListener(view -> gravaDisciplina());
@@ -97,7 +93,7 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
                 finish();
             }
             else
-                Util.showSnackBar(lnCadastroDisciplina, "Erro ao salvar a disciplina, verifique o log!");
+                Util.showSnackBar(ctCadastroDisciplina, "Erro ao salvar a disciplina, verifique o log!");
         }
     }
 

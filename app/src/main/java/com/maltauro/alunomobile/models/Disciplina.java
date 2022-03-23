@@ -1,5 +1,6 @@
 package com.maltauro.alunomobile.models;
 
+import androidx.annotation.NonNull;
 import com.orm.SugarRecord;
 
 public class Disciplina extends SugarRecord {
@@ -10,13 +11,6 @@ public class Disciplina extends SugarRecord {
     private Professor professor;
 
     public Disciplina() { }
-
-    public Disciplina(String descricao, int horasAulas, int quantidadeAulas, Professor professor) {
-        this.descricao = descricao;
-        this.horasAulas = horasAulas;
-        this.quantidadeAulas = quantidadeAulas;
-        this.professor = professor;
-    }
 
     public String getDescricao() {
         return descricao;
@@ -48,5 +42,11 @@ public class Disciplina extends SugarRecord {
 
     public void setProfessor(Professor professor) {
         this.professor = professor;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return descricao;
     }
 }

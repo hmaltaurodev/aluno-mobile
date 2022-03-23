@@ -12,12 +12,6 @@ public class Curso extends SugarRecord {
 
     public Curso() { }
 
-    public Curso(int codigoMEC, String descricao, int grauAcademico) {
-        this.codigoMEC = codigoMEC;
-        this.descricao = descricao;
-        this.grauAcademico = grauAcademico;
-    }
-
     public int getCodigoMEC() {
         return codigoMEC;
     }

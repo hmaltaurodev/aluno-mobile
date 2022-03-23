@@ -1,6 +1,7 @@
 package com.maltauro.alunomobile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -8,7 +9,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
-import android.widget.LinearLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.maltauro.alunomobile.R;
@@ -26,7 +26,7 @@ public class CadastroAlunoActivity extends AppCompatActivity {
     private TextInputEditText edtCpfAluno;
     private TextInputEditText edtDataNascimentoAluno;
     private TextInputEditText edtDataMatriculaAluno;
-    private LinearLayout lnCadastroAluno;
+    private ConstraintLayout ctCadastroAluno;
 
     private int dia;
     private int mes;
@@ -45,7 +45,7 @@ public class CadastroAlunoActivity extends AppCompatActivity {
         edtCpfAluno = findViewById(R.id.edt_cpf_aluno);
         edtDataNascimentoAluno = findViewById(R.id.edt_data_nascimento_aluno);
         edtDataMatriculaAluno = findViewById(R.id.edt_data_matricula_aluno);
-        lnCadastroAluno = findViewById(R.id.ln_cadastro_aluno);
+        ctCadastroAluno = findViewById(R.id.ct_cadastro_aluno);
 
         edtCpfAluno.addTextChangedListener(Mask.insert(edtCpfAluno, Mask.maskCPF));
 
@@ -76,11 +76,13 @@ public class CadastroAlunoActivity extends AppCompatActivity {
 
         if (edtDataNascimentoAluno.getText().toString().equals("")) {
             edtDataNascimentoAluno.setError("Informe a data do nascimento do aluno!");
+            edtDataNascimentoAluno.requestFocus();
             return false;
         }
 
         if (edtDataMatriculaAluno.getText().toString().equals("")) {
             edtDataMatriculaAluno.setError("Informa a data da matricula do aluno!");
+            edtDataMatriculaAluno.requestFocus();
             return false;
         }
 
@@ -102,7 +104,7 @@ public class CadastroAlunoActivity extends AppCompatActivity {
                 finish();
             }
             else
-                Util.showSnackBar(lnCadastroAluno, "Erro ao salvar o aluno, verifique o log!");
+                Util.showSnackBar(ctCadastroAluno, "Erro ao salvar o aluno, verifique o log!");
         }
     }
 

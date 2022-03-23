@@ -1,9 +1,7 @@
 package com.maltauro.alunomobile.models;
 
 import androidx.annotation.NonNull;
-
 import com.orm.SugarRecord;
-import java.util.Objects;
 
 public class Professor extends SugarRecord {
 
@@ -13,13 +11,6 @@ public class Professor extends SugarRecord {
     private String dataNascimento;
 
     public Professor() { }
-
-    public Professor(int ra, String nome, String cpf, String dataNascimento) {
-        this.ra = ra;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.dataNascimento = dataNascimento;
-    }
 
     public int getRa() {
         return ra;

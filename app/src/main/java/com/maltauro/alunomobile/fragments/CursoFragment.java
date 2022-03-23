@@ -19,7 +19,6 @@ import com.maltauro.alunomobile.adapters.CursoAdapter;
 import com.maltauro.alunomobile.dao.CursoDAO;
 import com.maltauro.alunomobile.models.Curso;
 import com.maltauro.alunomobile.utils.Util;
-
 import java.util.List;
 
 public class CursoFragment extends Fragment {
@@ -31,11 +30,10 @@ public class CursoFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         activity = requireActivity();
-
         ctCurso = view.findViewById(R.id.ct_curso);
 
-        FloatingActionButton fab_add_curso = view.findViewById(R.id.fab_add_curso);
-        fab_add_curso.setOnClickListener(view1 -> addCurso());
+        FloatingActionButton fabAddCurso = view.findViewById(R.id.fab_add_curso);
+        fabAddCurso.setOnClickListener(view1 -> addCurso());
 
         atualizaListaCursos();
     }
@@ -51,12 +49,11 @@ public class CursoFragment extends Fragment {
     }
 
     private void atualizaListaCursos() {
-        List<Curso> cursos;
-        cursos = CursoDAO.getListCursos("", new String[]{}, "descricao asc");
+        List<Curso> cursos = CursoDAO.getListCursos("", new String[]{}, "descricao asc");
 
-        RecyclerView rv_lista_cursos = activity.findViewById(R.id.rv_lista_cursos);
-        rv_lista_cursos.setLayoutManager(new LinearLayoutManager(activity));
-        rv_lista_cursos.setAdapter(new CursoAdapter(cursos, activity));
+        RecyclerView rvListaCursos = activity.findViewById(R.id.rv_lista_cursos);
+        rvListaCursos.setLayoutManager(new LinearLayoutManager(activity));
+        rvListaCursos.setAdapter(new CursoAdapter(cursos, activity));
     }
 
     @Override

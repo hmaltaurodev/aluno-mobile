@@ -1,117 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/gray"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/ln_cadastro_aluno"
+    android:id="@+id/ct_cadastro_aluno"
     tools:context=".activities.CadastroAlunoActivity">
 
-    <!--RA-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/ra"
-        style="@style/text_input_layout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:maxLength="8"
-            android:id="@+id/edt_ra_aluno"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <!--Nome-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/nome"
-        style="@style/text_input_layout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textCapWords"
-            android:id="@+id/edt_nome_aluno"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <!--CPF-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/cpf"
-        style="@style/text_input_layout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:maxLength="14"
-            android:id="@+id/edt_cpf_aluno"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:layout_height="match_parent">
 
-        <!--Data Nascimento-->
+        <!--RA-->
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/data_nascimento"
-            android:layout_marginEnd="5dp"
+            android:hint="@string/ra"
             style="@style/text_input_layout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="selecionarData"
-                android:focusable="false"
-                android:id="@+id/edt_data_nascimento_aluno"/>
+                android:inputType="number"
+                android:maxLength="8"
+                android:id="@+id/edt_ra_aluno"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!--Data Matricula-->
+        <!--Nome-->
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/data_matricula"
-            android:layout_marginStart="5dp"
+            android:hint="@string/nome"
             style="@style/text_input_layout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="selecionarData"
-                android:focusable="false"
-                android:id="@+id/edt_data_matricula_aluno"/>
+                android:inputType="textCapWords"
+                android:id="@+id/edt_nome_aluno"/>
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <!--CPF-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/cpf"
+            style="@style/text_input_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="14"
+                android:id="@+id/edt_cpf_aluno"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+
+            <!--Data Nascimento-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="@string/data_nascimento"
+                android:layout_marginEnd="5dp"
+                style="@style/text_input_layout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="selecionarData"
+                    android:focusable="false"
+                    android:id="@+id/edt_data_nascimento_aluno"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Data Matricula-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="@string/data_matricula"
+                android:layout_marginStart="5dp"
+                style="@style/text_input_layout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="selecionarData"
+                    android:focusable="false"
+                    android:id="@+id/edt_data_matricula_aluno"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_gravity="end"
+            android:id="@+id/sw_status_aluno"
+            android:text="@string/sw_ativo"
+            android:textColor="@color/gray_dark"
+            android:checked="true" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:gravity="end"
+        android:gravity="bottom|end"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:contentDescription="@string/fab_grava_aluno"
             android:id="@+id/fab_grava_aluno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
             android:backgroundTint="@color/color_primary"
             android:src="@drawable/ic_grava"
             android:layout_margin="10dp"
@@ -119,4 +135,4 @@
 
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

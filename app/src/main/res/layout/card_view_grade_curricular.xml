@@ -18,23 +18,16 @@
             android:layout_margin="10dp">
 
             <com.google.android.material.textview.MaterialTextView
-                android:text="@string/ano_descricao_placeholder"
-                android:id="@+id/text_view_ano_curso_turma"
+                android:text="@string/descricao_placeholder"
+                android:id="@+id/text_view_curso_grade_curricular"
                 android:textAppearance="@style/text_view_list_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:text="@string/ano_semestre_academico_placeholder"
-                android:id="@+id/text_view_ano_semestre_academico_turma"
+                android:id="@+id/text_view_ano_semestre_academico_grade_curricular"
                 android:textAppearance="@style/text_view_list_sub_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:text="@string/text_view_exibir_detalhes"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/gray_dark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

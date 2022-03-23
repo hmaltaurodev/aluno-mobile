@@ -45,15 +45,25 @@
         <item name="android:background">@color/white</item>
     </style>
 
+    <style name="button" parent="@android:style/TextAppearance">
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+    </style>
+
     <style name="material_spinner" parent="@android:style/TextAppearance">
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginStart">10dp</item>
         <item name="android:layout_marginEnd">10dp</item>
-        <item name="android:layout_marginBottom">-5dp</item>
         <item name="ms_arrowColor">@color/gray_dark</item>
         <item name="ms_hintColor">@color/gray_dark</item>
         <item name="ms_baseColor">@color/gray_dark</item>
         <item name="ms_multiline">false</item>
+    </style>
+
+    <style name="fab_square" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">5dp</item>
     </style>
 
 </resources>

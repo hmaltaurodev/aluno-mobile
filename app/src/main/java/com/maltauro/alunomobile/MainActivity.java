@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_professor,
                 R.id.nav_disciplina,
                 R.id.nav_curso,
+                R.id.nav_grade_curricular,
                 R.id.nav_turma,
                 R.id.nav_notas,
                 R.id.nav_frequencias,

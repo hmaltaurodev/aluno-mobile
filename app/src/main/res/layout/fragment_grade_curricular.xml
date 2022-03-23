@@ -4,16 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/gray"
-    android:id="@+id/ct_turma"
+    android:id="@+id/ct_grade_curricular"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.TurmaFragment">
+    tools:context=".fragments.GradeCurricularFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="5dp"
-        android:id="@+id/rv_lista_turmas"/>
+        android:id="@+id/rv_lista_grades_curriculares"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -22,8 +22,7 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:contentDescription="@string/fab_add_turma"
-            android:id="@+id/fab_add_turma"
+            android:id="@+id/fab_add_grade_curricular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
