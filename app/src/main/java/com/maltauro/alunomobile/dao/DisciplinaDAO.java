@@ -2,10 +2,20 @@ package com.maltauro.alunomobile.dao;
 
 import android.util.Log;
 import com.maltauro.alunomobile.models.Disciplina;
+import com.maltauro.alunomobile.models.Professor;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class DisciplinaDAO {
+
+    private static final String SELECT_DISCIPLINAS_DA_GRADE_CURRICULAR = "" +
+            "SELECT DISCIPLINA.* " +
+            "FROM DISCIPLINA " +
+            "INNER JOIN GRADE_CURRICULAR_DISCIPLINA ON GRADE_CURRICULAR_DISCIPLINA.DISCIPLINA = DISCIPLINA.ID " +
+            "INNER JOIN GRADE_CURRICULAR ON GRADE_CURRICULAR_DISCIPLINA.GRADE_CURRICULAR = GRADE_CURRICULAR.ID " +
+            "INNER JOIN TURMA ON TURMA.GRADE_CURRICULAR = GRADE_CURRICULAR.ID " +
+            "WHERE TURMA.ID = ? ";
 
     public static long salvar(Disciplina disciplina) {
         try {
@@ -35,6 +45,19 @@ public class DisciplinaDAO {
         }
         catch (Exception ex) {
             Log.e("Erro", "Erro ao buscar a lista de disciplinas: " + ex.getMessage());
+        }
+
+        return disciplinas;
+    }
+
+    public static List<Disciplina> getListDisciplinasGradeCurricular(String idTurma) {
+        List<Disciplina> disciplinas = new ArrayList<>();
+
+        try {
+            disciplinas = Disciplina.findWithQuery(Disciplina.class, SELECT_DISCIPLINAS_DA_GRADE_CURRICULAR, idTurma);
+        }
+        catch (Exception ex) {
+            Log.e("Erro", "Erro ao buscar a lista de disciplinas da grade curricular: " + ex.getMessage());
         }
 
         return disciplinas;

@@ -6,16 +6,11 @@ import com.orm.SugarRecord;
 public class Nota extends SugarRecord {
 
     private TurmaAluno turmaAluno;
+    private Disciplina disciplina;
     private int bimestre;
     private double nota;
 
     public Nota() { }
-
-    public Nota(TurmaAluno turmaAluno, int bimestre, double nota) {
-        this.turmaAluno = turmaAluno;
-        this.bimestre = bimestre;
-        this.nota = nota;
-    }
 
     public TurmaAluno getTurmaAluno() {
         return turmaAluno;
@@ -25,12 +20,20 @@ public class Nota extends SugarRecord {
         this.turmaAluno = turmaAluno;
     }
 
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
+
     public Bimestre getBimestre() {
         return Bimestre.getById(bimestre);
     }
 
-    public void setBimestre(Bimestre bimestre) {
-        this.bimestre = bimestre.getId();
+    public void setBimestre(int bimestre) {
+        this.bimestre = bimestre;
     }
 
     public double getNota() {

@@ -29,6 +29,6 @@ public class Turma extends SugarRecord {
     @NonNull
     @Override
     public String toString() {
-        return String.format("%o - %s", anoPeriodo, this.gradeCurricular.toString());
+        return String.format("%s - %s", anoPeriodo, this.gradeCurricular.toString());
     }
 }

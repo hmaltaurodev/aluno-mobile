@@ -9,7 +9,7 @@ import java.util.List;
 
 public class GradeCurricularDAO {
 
-    private static final String SELECT_GRADE_CURRICULAR_EXISTENTE = "" +
+    private static final String SELECT_GRADE_CURRICULAR_EXISTENTE =
             "SELECT " +
             "   ID, " +
             "   CURSO, " +

@@ -50,13 +50,13 @@
     <fragment
         android:id="@+id/nav_notas"
         android:name="com.maltauro.alunomobile.fragments.NotaFragment"
-        android:label="@string/nav_notas"
+        android:label="@string/nav_lancamento_notas"
         tools:layout="@layout/fragment_nota" />
 
     <fragment
         android:id="@+id/nav_frequencias"
         android:name="com.maltauro.alunomobile.fragments.FrequenciaFragment"
-        android:label="@string/nav_frequencias"
+        android:label="@string/nav_lancamento_frequencias"
         tools:layout="@layout/fragment_frequencia" />
 
     <fragment

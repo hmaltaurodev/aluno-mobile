@@ -87,4 +87,11 @@
     <string name="ano_semestre_academico_placeholder">1º Ano/1º Semestre</string>
     <string name="ano_descricao_placeholder">0000 - Descrição</string>
     <string name="sw_ativo">Ativo</string>
+    <string name="turma">Turma</string>
+    <string name="aluno">Aluno</string>
+    <string name="bimestre">Bimestre</string>
+    <string name="nota">Nota</string>
+    <string name="disciplina">Disciplina</string>
+    <string name="nav_lancamento_notas">Lançamento de Notas</string>
+    <string name="nav_lancamento_frequencias">Lançamento de Frequências</string>
 </resources>

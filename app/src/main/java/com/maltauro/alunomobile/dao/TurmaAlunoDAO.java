@@ -27,7 +27,7 @@ public class TurmaAlunoDAO {
         }
     }
 
-    public static List<TurmaAluno> getListTurmaAlunosAlunos(String where, String[] whererArgs, String orderBy) {
+    public static List<TurmaAluno> getListTurmaAlunos(String where, String[] whererArgs, String orderBy) {
         List<TurmaAluno> turmasAlunos = new ArrayList<>();
 
         try {
