@@ -32,6 +32,7 @@ public class CadastroCursoActivity extends AppCompatActivity {
 
         edtCodigoMECCurso = findViewById(R.id.edt_codigo_mec_curso);
         edtDescricaoCurso = findViewById(R.id.edt_descricao_curso);
+        spGrauAcademico = findViewById(R.id.sp_grau_academico);
         ctCadastroCurso = findViewById(R.id.ct_cadastro_curso);
 
         FloatingActionButton fab_grava_curso = findViewById(R.id.fab_grava_curso);
@@ -41,7 +42,6 @@ public class CadastroCursoActivity extends AppCompatActivity {
     }
 
     private void iniciaSpinner() {
-        spGrauAcademico = findViewById(R.id.sp_grau_academico);
         ArrayAdapter adapterGrauAcademico = new ArrayAdapter(this, android.R.layout.simple_list_item_1, GrauAcademico.values());
         spGrauAcademico.setAdapter(adapterGrauAcademico);
     }
@@ -61,7 +61,6 @@ public class CadastroCursoActivity extends AppCompatActivity {
 
         if (spGrauAcademico.getSelectedItemPosition() == 0) {
             spGrauAcademico.setError("Selecione um grau acadêmico!");
-            spGrauAcademico.requestFocus();
             return false;
         }
 

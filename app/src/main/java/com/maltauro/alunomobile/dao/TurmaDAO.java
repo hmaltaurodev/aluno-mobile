@@ -7,6 +7,12 @@ import java.util.List;
 
 public class TurmaDAO {
 
+    private static final String SELECT_TURMAS_CURSO = "" +
+            "SELECT TURMA.* " +
+            "FROM TURMA " +
+            "INNER JOIN GRADE_CURRICULAR ON TURMA.GRADE_CURRICULAR = GRADE_CURRICULAR.ID " +
+            "WHERE GRADE_CURRICULAR.CURSO = ? ";
+
     public static long salvar(Turma turma) {
         try {
             return turma.save();
@@ -40,13 +46,16 @@ public class TurmaDAO {
         return turmas;
     }
 
-    public static boolean delete(Turma turma) {
+    public static List<Turma> getListTurmasCurso(String idCurso) {
+        List<Turma> turmas = new ArrayList<>();
+
         try {
-            return Turma.delete(turma);
+            turmas = Turma.findWithQuery(Turma.class, SELECT_TURMAS_CURSO, idCurso);
         }
         catch (Exception ex) {
-            Log.e("Erro", "Erro ao deletar a turma: " + ex.getMessage());
-            return false;
+            Log.e("Erro", "Erro ao buscar a lista de turmas do curso: " + ex.getMessage());
         }
+
+        return turmas;
     }
 }

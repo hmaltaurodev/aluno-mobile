@@ -39,14 +39,4 @@ public class GradeCurricularDisciplinaDAO {
 
         return gradesCurriculares;
     }
-
-    public static boolean delete(GradeCurricularDisciplina gradeCurricularDisciplina) {
-        try {
-            return GradeCurricularDisciplina.delete(gradeCurricularDisciplina);
-        }
-        catch (Exception ex) {
-            Log.e("Erro", "Erro ao deletar a disciplina da grade curricular: " + ex.getMessage());
-            return false;
-        }
-    }
 }

@@ -15,9 +15,11 @@ import android.view.ViewGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.maltauro.alunomobile.R;
 import com.maltauro.alunomobile.activities.CadastroTurmaActivity;
+import com.maltauro.alunomobile.activities.DetalheTurmaActivity;
 import com.maltauro.alunomobile.adapters.TurmaAdapter;
 import com.maltauro.alunomobile.dao.TurmaDAO;
 import com.maltauro.alunomobile.models.Turma;
+import com.maltauro.alunomobile.utils.RecyclerItemClickListener;
 import com.maltauro.alunomobile.utils.Util;
 import java.util.List;
 
@@ -38,6 +40,16 @@ public class TurmaFragment extends Fragment {
         fabAddTurma.setOnClickListener(view1 -> addTurma());
 
         atualizaListaTurmas();
+
+        rvListaTurmas.addOnItemTouchListener(new RecyclerItemClickListener(activity, rvListaTurmas, new RecyclerItemClickListener.OnItemClickListener() {
+                @Override public void onItemClick(View view, int position) {
+                    Intent intent = new Intent(activity, DetalheTurmaActivity.class);
+                    startActivity(intent);
+                }
+
+                @Override public void onLongItemClick(View view, int position) { }
+            })
+        );
     }
 
     @Override
@@ -52,7 +64,6 @@ public class TurmaFragment extends Fragment {
 
     private void atualizaListaTurmas() {
         List<Turma> turmas = TurmaDAO.getListTurmas("", new String[]{}, "ano_periodo desc");
-
         rvListaTurmas.setLayoutManager(new LinearLayoutManager(activity));
         rvListaTurmas.setAdapter(new TurmaAdapter(turmas, activity));
     }

@@ -2,19 +2,14 @@ package com.maltauro.alunomobile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
-
+import android.widget.ListView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.maltauro.alunomobile.R;
-import com.maltauro.alunomobile.adapters.GradeCurricularDisciplinaAdapter;
-import com.maltauro.alunomobile.adapters.TurmaAlunoAdapter;
 import com.maltauro.alunomobile.dao.AlunoDAO;
 import com.maltauro.alunomobile.dao.GradeCurricularDAO;
 import com.maltauro.alunomobile.dao.TurmaAlunoDAO;
@@ -24,11 +19,9 @@ import com.maltauro.alunomobile.models.GradeCurricular;
 import com.maltauro.alunomobile.models.Turma;
 import com.maltauro.alunomobile.models.TurmaAluno;
 import com.maltauro.alunomobile.utils.Util;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 import fr.ganfra.materialspinner.MaterialSpinner;
 
 public class CadastroTurmaActivity extends AppCompatActivity {
@@ -37,7 +30,7 @@ public class CadastroTurmaActivity extends AppCompatActivity {
     MaterialSpinner spGradeCurricularTurma;
     TextInputEditText edtAnoPeriodoTurma;
     MaterialSpinner spAlunosTurma;
-    RecyclerView rvAlunoTurma;
+    ListView lvAlunoTurma;
     List<Aluno> alunos = new ArrayList<>();
     List<Aluno> alunosTurma = new ArrayList<>();
 
@@ -52,7 +45,7 @@ public class CadastroTurmaActivity extends AppCompatActivity {
         spGradeCurricularTurma = findViewById(R.id.sp_grade_curricular_turma);
         edtAnoPeriodoTurma = findViewById(R.id.edt_ano_periodo_turma);
         spAlunosTurma = findViewById(R.id.sp_alunos_turma);
-        rvAlunoTurma = findViewById(R.id.rv_aluno_turma);
+        lvAlunoTurma = findViewById(R.id.lv_aluno_turma);
 
         FloatingActionButton fabAddAlunos = findViewById(R.id.fab_add_alunos);
         FloatingActionButton fabGravaTurma = findViewById(R.id.fab_grava_turma);
@@ -85,7 +78,6 @@ public class CadastroTurmaActivity extends AppCompatActivity {
             turma.setAnoPeriodo(Integer.parseInt(edtAnoPeriodoTurma.getText().toString()));
 
             if (TurmaDAO.salvar(turma) > 0) {
-
                 for (Aluno aluno : alunosTurma) {
                     TurmaAluno turmaAluno = new TurmaAluno();
 
@@ -109,12 +101,9 @@ public class CadastroTurmaActivity extends AppCompatActivity {
         alunosTurma.add(aluno);
         alunos.remove(aluno);
         spAlunosTurma.setSelection(0);
-        carregaRecycleView();
-    }
 
-    private void carregaRecycleView() {
-        rvAlunoTurma.setLayoutManager(new LinearLayoutManager(this));
-        rvAlunoTurma.setAdapter(new TurmaAlunoAdapter(alunosTurma, this));
+        ArrayAdapter adapterAlunos = new ArrayAdapter(this, android.R.layout.simple_list_item_1, alunosTurma);
+        lvAlunoTurma.setAdapter(adapterAlunos);
     }
 
     @Override

@@ -1,15 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/gray"
+    android:id="@+id/ct_frequencia"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.FrequenciaFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <!--Curso-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/layout_spinner">
+
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/sp_curso_frequencia"
+                app:ms_floatingLabelText="@string/curso"
+                app:ms_hint="@string/curso"
+                style="@style/material_spinner"/>
+
+        </LinearLayout>
+
+        <!--Turma-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/ln_turma_frequencia"
+            style="@style/layout_spinner">
+
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/sp_turma_frequencia"
+                app:ms_floatingLabelText="@string/turma"
+                app:ms_hint="@string/turma"
+                style="@style/material_spinner"/>
+
+        </LinearLayout>
+
+        <!--Disciplina-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/ln_disciplina_frequencia"
+            style="@style/layout_spinner">
+
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/sp_disciplina_frequencia"
+                app:ms_floatingLabelText="@string/disciplina"
+                app:ms_hint="@string/disciplina"
+                style="@style/material_spinner"/>
+
+        </LinearLayout>
+
+        <!--Alunos-->
+        <ListView
+            android:visibility="gone"
+            android:id="@+id/lv_aluno_frequencia"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:choiceMode="multipleChoice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="bottom|end"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_grava_frequencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/color_primary"
+            android:src="@drawable/ic_grava"
+            android:layout_margin="10dp"
+            app:tint="@null" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

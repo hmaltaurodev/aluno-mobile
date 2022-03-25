@@ -39,6 +39,6 @@ public class Curso extends SugarRecord {
     @NonNull
     @Override
     public String toString() {
-        return String.format("%o - %s", this.codigoMEC, this.descricao);
+        return String.format("%s - %s", this.codigoMEC, this.descricao);
     }
 }

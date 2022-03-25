@@ -62,14 +62,4 @@ public class DisciplinaDAO {
 
         return disciplinas;
     }
-
-    public static boolean delete(Disciplina disciplina) {
-        try {
-            return Disciplina.delete(disciplina);
-        }
-        catch (Exception ex) {
-            Log.e("Erro", "Erro ao deletar a disciplina: " + ex.getMessage());
-            return false;
-        }
-    }
 }

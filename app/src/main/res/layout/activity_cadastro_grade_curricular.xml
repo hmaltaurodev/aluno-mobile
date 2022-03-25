@@ -137,8 +137,8 @@
 
       </LinearLayout>
 
-      <androidx.recyclerview.widget.RecyclerView
-          android:id="@+id/rv_disciplinas_grade_curricular"
+      <ListView
+          android:id="@+id/lv_disciplinas_grade_curricular"
           android:layout_marginStart="10dp"
           android:layout_marginEnd="10dp"
           android:layout_marginTop="10dp"

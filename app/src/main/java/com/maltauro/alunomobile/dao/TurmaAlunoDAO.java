@@ -39,14 +39,4 @@ public class TurmaAlunoDAO {
 
         return turmasAlunos;
     }
-
-    public static boolean delete(TurmaAluno turmaAluno) {
-        try {
-            return TurmaAluno.delete(turmaAluno);
-        }
-        catch (Exception ex) {
-            Log.e("Erro", "Erro ao deletar o aluno da turma: " + ex.getMessage());
-            return false;
-        }
-    }
 }

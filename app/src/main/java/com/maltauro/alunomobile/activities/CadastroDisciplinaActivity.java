@@ -36,6 +36,7 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
         edtDescricaoDisciplina = findViewById(R.id.edt_descricao_disciplina);
         edtHorasAulasDisciplina = findViewById(R.id.edt_hora_aula_disciplina);
         edtQuantidadeAulasDisciplina = findViewById(R.id.edt_quantidade_aula_disciplina);
+        spProfessorDisciplina = findViewById(R.id.sp_professor_disciplina);
         ctCadastroDisciplina = findViewById(R.id.ct_cadastro_disciplina);
 
         FloatingActionButton fab_grava_disciplina = findViewById(R.id.fab_grava_disciplina);
@@ -45,7 +46,6 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
     }
 
     private void iniciaSpinner() {
-        spProfessorDisciplina = findViewById(R.id.sp_professor_disciplina);
         List<Professor> professores = ProfessorDAO.getListProfessores("", new String[]{}, "nome asc");
         ArrayAdapter adapterProfessores = new ArrayAdapter(this, android.R.layout.simple_list_item_1, professores);
         spProfessorDisciplina.setAdapter(adapterProfessores);
@@ -72,7 +72,6 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
 
         if (spProfessorDisciplina.getSelectedItemPosition() == 0) {
             spProfessorDisciplina.setError("Selecione um professor!");
-            spProfessorDisciplina.requestFocus();
             return false;
         }
 

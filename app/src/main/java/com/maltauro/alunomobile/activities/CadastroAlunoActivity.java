@@ -76,13 +76,11 @@ public class CadastroAlunoActivity extends AppCompatActivity {
 
         if (edtDataNascimentoAluno.getText().toString().equals("")) {
             edtDataNascimentoAluno.setError("Informe a data do nascimento do aluno!");
-            edtDataNascimentoAluno.requestFocus();
             return false;
         }
 
         if (edtDataMatriculaAluno.getText().toString().equals("")) {
             edtDataMatriculaAluno.setError("Informa a data da matricula do aluno!");
-            edtDataMatriculaAluno.requestFocus();
             return false;
         }
 

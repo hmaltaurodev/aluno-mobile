@@ -1,18 +1,15 @@
 package com.maltauro.alunomobile.activities;
 
 import static com.maltauro.alunomobile.utils.Util.mensagemDialog;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.maltauro.alunomobile.R;
-import com.maltauro.alunomobile.adapters.GradeCurricularDisciplinaAdapter;
 import com.maltauro.alunomobile.dao.CursoDAO;
 import com.maltauro.alunomobile.dao.DisciplinaDAO;
 import com.maltauro.alunomobile.dao.GradeCurricularDAO;
@@ -38,7 +35,7 @@ public class CadastroGradeCurricularActivity extends AppCompatActivity {
     MaterialSpinner spRegimeAcademicoGradeCurricular;
     MaterialSpinner spSemestrePeriodoGradeCurricular;
     MaterialSpinner spDisciplinasGradeCurricular;
-    RecyclerView rvDisciplinasGradeCurricular;
+    ListView lvDisciplinasGradeCurricular;
     List<Disciplina> disciplinas = new ArrayList<>();
     List<Disciplina> disciplinasGradeCurricular = new ArrayList<>();
 
@@ -55,7 +52,7 @@ public class CadastroGradeCurricularActivity extends AppCompatActivity {
         spSemestrePeriodoGradeCurricular = findViewById(R.id.sp_semestre_periodo_grade_curricular);
         spDisciplinasGradeCurricular = findViewById(R.id.sp_disciplinas_grade_curricular);
         ctCadastroGradeCurricular = findViewById(R.id.ct_cadastro_grade_curricular);
-        rvDisciplinasGradeCurricular = findViewById(R.id.rv_disciplinas_grade_curricular);
+        lvDisciplinasGradeCurricular = findViewById(R.id.lv_disciplinas_grade_curricular);
 
         FloatingActionButton fabAddDisciplina = findViewById(R.id.fab_add_disciplina);
         FloatingActionButton fabGravaGradeCurricular = findViewById(R.id.fab_grava_grade_curricular);
@@ -137,7 +134,6 @@ public class CadastroGradeCurricularActivity extends AppCompatActivity {
             gradeCurricular.setSemestrePeriodo(spSemestrePeriodoGradeCurricular.getSelectedItemPosition());
 
             if (GradeCurricularDAO.salvar(gradeCurricular) > 0) {
-
                 for (Disciplina disciplina : disciplinasGradeCurricular) {
                     GradeCurricularDisciplina gradeCurricularDisciplina = new GradeCurricularDisciplina();
 
@@ -161,12 +157,9 @@ public class CadastroGradeCurricularActivity extends AppCompatActivity {
         disciplinasGradeCurricular.add(disciplina);
         disciplinas.remove(disciplina);
         spDisciplinasGradeCurricular.setSelection(0);
-        carregaRecycleView();
-    }
 
-    private void carregaRecycleView() {
-        rvDisciplinasGradeCurricular.setLayoutManager(new LinearLayoutManager(this));
-        rvDisciplinasGradeCurricular.setAdapter(new GradeCurricularDisciplinaAdapter(disciplinasGradeCurricular, this));
+        ArrayAdapter adapterDisciplinas = new ArrayAdapter(this, android.R.layout.simple_list_item_1, disciplinasGradeCurricular);
+        lvDisciplinasGradeCurricular.setAdapter(adapterDisciplinas);
     }
 
     @Override

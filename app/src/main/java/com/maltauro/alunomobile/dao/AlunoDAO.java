@@ -77,14 +77,4 @@ public class AlunoDAO {
 
         return alunos;
     }
-
-    public static boolean delete(Aluno aluno) {
-        try {
-            return Aluno.delete(aluno);
-        }
-        catch (Exception ex) {
-            Log.e("Erro", "Erro ao deletar o aluno: " + ex.getMessage());
-            return false;
-        }
-    }
 }

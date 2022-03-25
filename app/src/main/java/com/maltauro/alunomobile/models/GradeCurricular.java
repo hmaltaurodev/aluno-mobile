@@ -51,13 +51,10 @@ public class GradeCurricular extends SugarRecord {
     @NonNull
     @Override
     public String toString() {
-        String anoAcademico = Objects.requireNonNull(AnoAcademico.getById(this.anoAcademico)).toString();
+        String anoAcademico = this.getAnoAcademico().toString();
 
-        if (this.semestrePeriodo != 0) {
-            String semestrePeriodo = Objects.requireNonNull(SemestrePeriodo.getById(this.semestrePeriodo)).toString();
-            return String.format("%s/%s - %s", anoAcademico, semestrePeriodo, this.curso.getDescricao());
-        }
-
+        if (this.semestrePeriodo != 0)
+            return String.format("%s/%s - %s", anoAcademico, this.getRegimeAcademico().toString(), this.curso.getDescricao());
         return String.format("%s - %s", anoAcademico, this.curso.getDescricao());
     }
 }

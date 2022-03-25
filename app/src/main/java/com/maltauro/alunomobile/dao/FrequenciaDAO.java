@@ -39,14 +39,4 @@ public class FrequenciaDAO {
 
         return frequencias;
     }
-
-    public static boolean delete(Frequencia frequencia) {
-        try {
-            return Frequencia.delete(frequencia);
-        }
-        catch (Exception ex) {
-            Log.e("Erro", "Erro ao deletar a frequencia: " + ex.getMessage());
-            return false;
-        }
-    }
 }

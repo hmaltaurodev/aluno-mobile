@@ -39,14 +39,4 @@ public class CursoDAO {
 
         return cursos;
     }
-
-    public static boolean delete(Curso curso) {
-        try {
-            return Curso.delete(curso);
-        }
-        catch (Exception ex) {
-            Log.e("Erro", "Erro ao deletar o curso: " + ex.getMessage());
-            return false;
-        }
-    }
 }

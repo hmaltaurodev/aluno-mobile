@@ -39,14 +39,4 @@ public class ProfessorDAO {
 
         return professores;
     }
-
-    public static boolean delete(Professor professor) {
-        try {
-            return Professor.delete(professor);
-        }
-        catch (Exception ex) {
-            Log.e("Erro", "Erro ao deletar o professor: " + ex.getMessage());
-            return false;
-        }
-    }
 }

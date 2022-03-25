@@ -5,6 +5,7 @@ import com.orm.SugarRecord;
 public class Frequencia extends SugarRecord {
 
     private TurmaAluno turmaAluno;
+    private Disciplina disciplina;
     private int numeroAula;
     private boolean presenca;
 
@@ -16,6 +17,14 @@ public class Frequencia extends SugarRecord {
 
     public void setTurmaAluno(TurmaAluno turmaAluno) {
         this.turmaAluno = turmaAluno;
+    }
+
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
     }
 
     public int getNumeroAula() {

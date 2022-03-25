@@ -14,10 +14,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--Curso-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/layout_spinner">
+
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/sp_curso_nota"
+                app:ms_floatingLabelText="@string/curso"
+                app:ms_hint="@string/curso"
+                style="@style/material_spinner"/>
+
+        </LinearLayout>
+
         <!--Turma-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/ln_turma_nota"
             style="@style/layout_spinner">
 
             <fr.ganfra.materialspinner.MaterialSpinner
