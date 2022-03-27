@@ -90,7 +90,7 @@ public class FrequenciaFragment extends Fragment {
                 lnTurmaFrequencia.setVisibility(View.VISIBLE);
                 fabLimpaFrequencia.setVisibility(View.VISIBLE);
 
-                String idCurso = String.valueOf(((Curso) spCursoFrequencia.getSelectedItem()).getId());
+                long idCurso = ((Curso) spCursoFrequencia.getSelectedItem()).getId();
 
                 List<Turma> turmas = TurmaDAO.getListTurmasCurso(idCurso);
                 ArrayAdapter adapterTurmas = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, turmas);
@@ -122,7 +122,7 @@ public class FrequenciaFragment extends Fragment {
 
                 Turma turma = (Turma) spTurmaFrequencia.getSelectedItem();
 
-                List<Disciplina> disciplinas = DisciplinaDAO.getListDisciplinasGradeCurricular(String.valueOf(turma.getId()));
+                List<Disciplina> disciplinas = DisciplinaDAO.getListDisciplinasGradeCurricular(turma.getId());
                 ArrayAdapter adapterDisciplinas = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, disciplinas);
                 spDisciplinaFrequencia.setAdapter(adapterDisciplinas);
             }
@@ -156,7 +156,7 @@ public class FrequenciaFragment extends Fragment {
                 spAulaFrequencia.setAdapter(adapterAulas);
 
                 long idTurma = ((Turma) spTurmaFrequencia.getSelectedItem()).getId();
-                alunos = AlunoDAO.getListAlunosTurma(String.valueOf(idTurma));
+                alunos = AlunoDAO.getListAlunosTurma(idTurma);
                 ArrayAdapter adapterAlunos = new ArrayAdapter(activity, android.R.layout.simple_list_item_multiple_choice, alunos);
                 lvAlunoFrequencia.setAdapter(adapterAlunos);
             }

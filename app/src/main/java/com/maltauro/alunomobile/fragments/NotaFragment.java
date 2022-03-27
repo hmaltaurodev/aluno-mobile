@@ -93,7 +93,7 @@ public class NotaFragment extends Fragment {
                 lnTurmaNota.setVisibility(View.VISIBLE);
                 fabLimpaNota.setVisibility(View.VISIBLE);
 
-                String idCurso = String.valueOf(((Curso) spCursoNota.getSelectedItem()).getId());
+                long idCurso = ((Curso) spCursoNota.getSelectedItem()).getId();
 
                 List<Turma> turmas = TurmaDAO.getListTurmasCurso(idCurso);
                 ArrayAdapter adapterTurmas = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, turmas);
@@ -146,11 +146,11 @@ public class NotaFragment extends Fragment {
                 ArrayAdapter adapterBimestre = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, bimestres);
                 spBimestreNota.setAdapter(adapterBimestre);
 
-                List<Disciplina> disciplinas = DisciplinaDAO.getListDisciplinasGradeCurricular(String.valueOf(turma.getId()));
+                List<Disciplina> disciplinas = DisciplinaDAO.getListDisciplinasGradeCurricular(turma.getId());
                 ArrayAdapter adapterDisciplinas = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, disciplinas);
                 spDisciplinaNota.setAdapter(adapterDisciplinas);
 
-                List<Aluno> alunos = AlunoDAO.getListAlunosTurma(String.valueOf(turma.getId()));
+                List<Aluno> alunos = AlunoDAO.getListAlunosTurma(turma.getId());
                 ArrayAdapter adapterAlunos = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, alunos);
                 spAlunoNota.setAdapter(adapterAlunos);
             }

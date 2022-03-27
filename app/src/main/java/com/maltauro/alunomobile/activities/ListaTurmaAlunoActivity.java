@@ -42,7 +42,7 @@ public class ListaTurmaAlunoActivity extends AppCompatActivity {
     }
 
     private void atualizaListaAlunos() {
-        List<Aluno> alunos = AlunoDAO.getListAlunosTurma(String.valueOf(idTurma));
+        List<Aluno> alunos = AlunoDAO.getListAlunosTurma(idTurma);
 
         RecyclerView rvListaTurmaAlunos = findViewById(R.id.rv_lista_turma_alunos);
         rvListaTurmaAlunos.setLayoutManager(new LinearLayoutManager(this));

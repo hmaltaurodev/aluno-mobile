@@ -52,11 +52,11 @@ public class TurmaDAO {
         }
     }
 
-    public static List<Turma> getListTurmasCurso(String idCurso) {
+    public static List<Turma> getListTurmasCurso(long idCurso) {
         List<Turma> turmas = new ArrayList<>();
 
         try {
-            turmas = Turma.findWithQuery(Turma.class, SELECT_TURMAS_CURSO, idCurso);
+            turmas = Turma.findWithQuery(Turma.class, SELECT_TURMAS_CURSO, String.valueOf(idCurso));
         }
         catch (Exception ex) {
             Log.e("Erro", "Erro ao buscar a lista de turmas do curso: " + ex.getMessage());

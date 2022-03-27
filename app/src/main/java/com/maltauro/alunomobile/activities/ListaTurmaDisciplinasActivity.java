@@ -58,7 +58,7 @@ public class ListaTurmaDisciplinasActivity extends AppCompatActivity {
     }
 
     private void atualizaListaDisciplinas() {
-        disciplinas = DisciplinaDAO.getListDisciplinasGradeCurricular(String.valueOf(idTurma));
+        disciplinas = DisciplinaDAO.getListDisciplinasGradeCurricular(idTurma);
         rvListaTurmaDisciplinas.setLayoutManager(new LinearLayoutManager(this));
         rvListaTurmaDisciplinas.setAdapter(new TurmaDisciplinaAdapter(disciplinas, idTurma, this));
     }

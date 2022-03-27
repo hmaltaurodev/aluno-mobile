@@ -48,11 +48,11 @@ public class DisciplinaDAO {
         return disciplinas;
     }
 
-    public static List<Disciplina> getListDisciplinasGradeCurricular(String idTurma) {
+    public static List<Disciplina> getListDisciplinasGradeCurricular(long idTurma) {
         List<Disciplina> disciplinas = new ArrayList<>();
 
         try {
-            disciplinas = Disciplina.findWithQuery(Disciplina.class, SELECT_DISCIPLINAS_DA_GRADE_CURRICULAR, idTurma);
+            disciplinas = Disciplina.findWithQuery(Disciplina.class, SELECT_DISCIPLINAS_DA_GRADE_CURRICULAR, String.valueOf(idTurma));
         }
         catch (Exception ex) {
             Log.e("Erro", "Erro ao buscar a lista de disciplinas da grade curricular: " + ex.getMessage());

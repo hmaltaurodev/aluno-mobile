@@ -42,11 +42,11 @@ public class AlunoDAO {
         return alunos;
     }
 
-    public static List<Aluno> getListAlunosTurma(String idTurma) {
+    public static List<Aluno> getListAlunosTurma(long idTurma) {
         List<Aluno> alunos = new ArrayList<>();
 
         try {
-            alunos = Aluno.findWithQuery(Aluno.class, SELECT_ALUNOS_DA_TURMA, idTurma);
+            alunos = Aluno.findWithQuery(Aluno.class, SELECT_ALUNOS_DA_TURMA, String.valueOf(idTurma));
         }
         catch (Exception ex) {
             Log.e("Erro", "Erro ao buscar a lista de alunos da turma: " + ex.getMessage());
