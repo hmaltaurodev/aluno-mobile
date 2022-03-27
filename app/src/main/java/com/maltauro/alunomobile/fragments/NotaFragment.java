@@ -198,6 +198,7 @@ public class NotaFragment extends Fragment {
 
         if (edtNota.getText().toString().equals("")) {
             edtNota.setError("Informe uma nota!");
+            edtNota.requestFocus();
             return false;
         }
 
