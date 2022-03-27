@@ -211,12 +211,14 @@ public class CadastroGradeCurricularActivity extends AppCompatActivity {
     }
 
     private void adicionaDisciplina() {
-        Disciplina disciplina = (Disciplina) spDisciplinasGradeCurricular.getSelectedItem();
-        disciplinasGradeCurricular.add(disciplina);
-        disciplinas.remove(disciplina);
-        spDisciplinasGradeCurricular.setSelection(0);
+        if (spDisciplinasGradeCurricular.getSelectedItemPosition() != 0) {
+            Disciplina disciplina = (Disciplina) spDisciplinasGradeCurricular.getSelectedItem();
+            disciplinasGradeCurricular.add(disciplina);
+            disciplinas.remove(disciplina);
+            spDisciplinasGradeCurricular.setSelection(0);
 
-        carregaListViewDisplinas();
+            carregaListViewDisplinas();
+        }
     }
 
     private void carregaListViewDisplinas() {

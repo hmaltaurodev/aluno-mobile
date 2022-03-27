@@ -221,12 +221,14 @@ public class CadastroTurmaActivity extends AppCompatActivity {
     }
 
     private void adicionaAluno() {
-        Aluno aluno = (Aluno) spAlunosTurma.getSelectedItem();
-        alunosTurma.add(aluno);
-        alunos.remove(aluno);
-        spAlunosTurma.setSelection(0);
+        if (spAlunosTurma.getSelectedItemPosition() != 0) {
+            Aluno aluno = (Aluno) spAlunosTurma.getSelectedItem();
+            alunosTurma.add(aluno);
+            alunos.remove(aluno);
+            spAlunosTurma.setSelection(0);
 
-        carregaListViewAlunos();
+            carregaListViewAlunos();
+        }
     }
 
     private void carregaListViewAlunos() {
