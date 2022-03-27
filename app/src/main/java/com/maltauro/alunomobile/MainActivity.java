@@ -3,12 +3,10 @@ package com.maltauro.alunomobile;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import com.google.android.material.navigation.NavigationView;
 import com.maltauro.alunomobile.databinding.ActivityMainBinding;
 import com.maltauro.alunomobile.utils.Util;
 import com.orm.SugarContext;
-
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
