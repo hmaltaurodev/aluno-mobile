@@ -1,5 +1,6 @@
 package com.maltauro.alunomobile.adapters;
 
+import static com.maltauro.alunomobile.utils.Util.raPad;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,7 +50,7 @@ public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.Prof
     public void onBindViewHolder(@NonNull ProfessorViewHolder holder, int position) {
         Professor professor = professores.get(position);
 
-        holder.textViewRaProfessor.setText(String.valueOf(professor.getRa()));
+        holder.textViewRaProfessor.setText(raPad(String.valueOf(professor.getRa())));
         holder.textViewNomeProfessor.setText(professor.getNome());
         holder.textViewCpfProfessor.setText(professor.getCpf());
         holder.textViewDataNascimentoProfessor.setText(professor.getDataNascimento());

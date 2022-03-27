@@ -3,19 +3,13 @@ package com.maltauro.alunomobile.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-
 import com.maltauro.alunomobile.R;
 import com.maltauro.alunomobile.adapters.TurmaAlunoAdapter;
 import com.maltauro.alunomobile.dao.AlunoDAO;
 import com.maltauro.alunomobile.models.Aluno;
-import com.maltauro.alunomobile.utils.RecyclerItemClickListener;
-
 import java.util.List;
 import java.util.Objects;
 

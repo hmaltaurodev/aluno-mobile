@@ -25,7 +25,7 @@
             android:layout_height="match_parent"
             android:id="@+id/sp_curso_grade_curricular"
             app:ms_floatingLabelText="@string/curso"
-            app:ms_hint="@string/curso"
+            app:ms_hint="@string/selecione_curso"
             style="@style/material_spinner"/>
 
       </LinearLayout>
@@ -49,7 +49,7 @@
               android:layout_height="match_parent"
               android:id="@+id/sp_ano_academico_grade_curricular"
               app:ms_floatingLabelText="@string/ano_academico"
-              app:ms_hint="@string/ano_academico"
+              app:ms_hint="@string/selecione_ano_academico"
               style="@style/material_spinner"/>
 
         </LinearLayout>
@@ -67,7 +67,7 @@
               android:layout_height="match_parent"
               android:id="@+id/sp_regime_academico_grade_curricular"
               app:ms_floatingLabelText="@string/regime_academico"
-              app:ms_hint="@string/regime_academico"
+              app:ms_hint="@string/selecione_regime_academico"
               style="@style/material_spinner"/>
 
         </LinearLayout>
@@ -76,7 +76,7 @@
 
       <!--Semestre Período-->
       <LinearLayout
-          android:id="@+id/ln_semestre_periodo"
+          android:id="@+id/ln_semestre_periodo_curricular"
           android:visibility="gone"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
             android:layout_height="match_parent"
             android:id="@+id/sp_semestre_periodo_grade_curricular"
             app:ms_floatingLabelText="@string/semestre_periodo"
-            app:ms_hint="@string/semestre_periodo"
+            app:ms_hint="@string/selecione_semestre_periodo"
             style="@style/material_spinner"/>
 
       </LinearLayout>
@@ -111,7 +111,7 @@
               android:layout_height="match_parent"
               android:id="@+id/sp_disciplinas_grade_curricular"
               app:ms_floatingLabelText="@string/disciplinas"
-              app:ms_hint="@string/disciplinas"
+              app:ms_hint="@string/selecione_disciplinas"
               style="@style/material_spinner"/>
 
         </LinearLayout>
@@ -151,17 +151,41 @@
 
     <LinearLayout
         android:gravity="bottom|end"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+      <com.google.android.material.floatingactionbutton.FloatingActionButton
+          android:id="@+id/fab_limpa_grade_curricular"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:backgroundTint="@color/color_primary"
+          android:src="@drawable/ic_limpa"
+          android:layout_marginEnd="10dp"
+          android:layout_marginStart="10dp"
+          android:layout_marginBottom="10dp"
+          app:tint="@null" />
+
+      <com.google.android.material.floatingactionbutton.FloatingActionButton
+          android:id="@+id/fab_cancela_grade_curricular"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:backgroundTint="@color/red"
+          android:src="@drawable/ic_cancel"
+          android:layout_marginEnd="10dp"
+          android:layout_marginStart="10dp"
+          android:layout_marginBottom="10dp"
+          app:tint="@null" />
 
       <com.google.android.material.floatingactionbutton.FloatingActionButton
           android:id="@+id/fab_grava_grade_curricular"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:backgroundTint="@color/color_primary"
+          android:backgroundTint="@color/green"
           android:src="@drawable/ic_grava"
-          android:layout_margin="10dp"
+          android:layout_marginEnd="10dp"
+          android:layout_marginStart="10dp"
+          android:layout_marginBottom="10dp"
           app:tint="@null" />
 
     </LinearLayout>

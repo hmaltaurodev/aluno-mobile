@@ -86,7 +86,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/sp_professor_disciplina"
                 app:ms_floatingLabelText="@string/professor"
-                app:ms_hint="@string/professor"
+                app:ms_hint="@string/selecione_professor"
                 style="@style/material_spinner"/>
 
         </LinearLayout>
@@ -95,17 +95,41 @@
 
     <LinearLayout
         android:gravity="bottom|end"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_limpa_disciplina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/color_primary"
+            android:src="@drawable/ic_limpa"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            app:tint="@null" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_cancela_disciplina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red"
+            android:src="@drawable/ic_cancel"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            app:tint="@null" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_grava_disciplina"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/color_primary"
+            android:backgroundTint="@color/green"
             android:src="@drawable/ic_grava"
-            android:layout_margin="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
             app:tint="@null" />
 
     </LinearLayout>

@@ -49,6 +49,7 @@ public class NotaFragment extends Fragment {
     private LinearLayout lnAlunoNota;
     private LinearLayout lnBimestreNota;
     private FloatingActionButton fabGravaNota;
+    private FloatingActionButton fabLimpaNota;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -67,10 +68,12 @@ public class NotaFragment extends Fragment {
         lnAlunoNota = activity.findViewById(R.id.ln_aluno_nota);
         lnBimestreNota = activity.findViewById(R.id.ln_bimestre_nota);
         fabGravaNota = activity.findViewById(R.id.fab_grava_nota);
+        fabLimpaNota = activity.findViewById(R.id.fab_limpa_nota);
 
         spCursoNota.setOnItemSelectedListener(cursoListener);
         spTurmaNota.setOnItemSelectedListener(turmaListener);
         fabGravaNota.setOnClickListener(view1 -> gravaNota());
+        fabLimpaNota.setOnClickListener(view1 -> limpaCampos());
 
         iniciaSpinner();
     }
@@ -87,21 +90,27 @@ public class NotaFragment extends Fragment {
 
             if (spCursoNota.getSelectedItemPosition() != 0) {
                 lnTurmaNota.setVisibility(View.VISIBLE);
+                fabLimpaNota.setVisibility(View.VISIBLE);
 
                 String idCurso = String.valueOf(((Curso) spCursoNota.getSelectedItem()).getId());
 
                 List<Turma> turmas = TurmaDAO.getListTurmasCurso(idCurso);
                 ArrayAdapter adapterTurmas = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, turmas);
                 spTurmaNota.setAdapter(adapterTurmas);
+
+                if (turmas.size() == 0)
+                    mensagemDialog("Atenção", "Não será possível lançar nota, pois não existem turmas cadastradas para esse curso!", activity);
             }
             else {
                 lnTurmaNota.setVisibility(View.GONE);
+                fabLimpaNota.setVisibility(View.GONE);
             }
         }
 
         @Override
         public void onNothingSelected(AdapterView<?> adapterView) {
             lnTurmaNota.setVisibility(View.GONE);
+            fabLimpaNota.setVisibility(View.GONE);
         }
     };
 
@@ -165,7 +174,9 @@ public class NotaFragment extends Fragment {
         List<Curso> cursos = CursoDAO.getListCursos("", new String[]{}, "codigo_mec desc");
         ArrayAdapter adapterCursos = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, cursos);
         spCursoNota.setAdapter(adapterCursos);
-        spCursoNota.setSelection(0);
+
+        if (cursos.size() == 0)
+            mensagemDialog("Atenção", "Não será possível lançar nota, pois não existem cursos cadastrados!", activity);
     }
 
     private boolean validaCampos() {
@@ -217,10 +228,23 @@ public class NotaFragment extends Fragment {
             nota.setBimestre(spBimestreNota.getSelectedItemPosition());
             nota.setNota(Double.parseDouble(edtNota.getText().toString()));
 
-            if (NotaDAO.salvar(nota) > 0)
+            if (NotaDAO.salvar(nota) > 0) {
                 Util.showSnackBar(ctNota, "Nota salva com sucesso!");
+                limpaCampos();
+            }
             else
                 Util.showSnackBar(ctNota, "Erro ao salvar a nota, verifique o log!");
         }
+    }
+
+    private void limpaCampos() {
+        spCursoNota.setSelection(0);
+        spTurmaNota.setSelection(0);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        limpaCampos();
     }
 }

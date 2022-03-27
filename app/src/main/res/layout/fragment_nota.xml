@@ -25,7 +25,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/sp_curso_nota"
                 app:ms_floatingLabelText="@string/curso"
-                app:ms_hint="@string/curso"
+                app:ms_hint="@string/selecione_curso"
                 style="@style/material_spinner"/>
 
         </LinearLayout>
@@ -43,7 +43,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/sp_turma_nota"
                 app:ms_floatingLabelText="@string/turma"
-                app:ms_hint="@string/turma"
+                app:ms_hint="@string/selecione_turma"
                 style="@style/material_spinner"/>
 
         </LinearLayout>
@@ -61,7 +61,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/sp_disciplina_nota"
                 app:ms_floatingLabelText="@string/disciplina"
-                app:ms_hint="@string/disciplina"
+                app:ms_hint="@string/selecione_disciplina"
                 style="@style/material_spinner"/>
 
         </LinearLayout>
@@ -79,7 +79,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/sp_aluno_nota"
                 app:ms_floatingLabelText="@string/aluno"
-                app:ms_hint="@string/aluno"
+                app:ms_hint="@string/selecione_aluno"
                 style="@style/material_spinner"/>
 
         </LinearLayout>
@@ -105,7 +105,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/sp_bimestre_nota"
                     app:ms_floatingLabelText="@string/bimestre"
-                    app:ms_hint="@string/bimestre"
+                    app:ms_hint="@string/selecione_bimestre"
                     style="@style/material_spinner"/>
 
             </LinearLayout>
@@ -134,18 +134,32 @@
 
     <LinearLayout
         android:gravity="bottom|end"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_limpa_nota"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/color_primary"
+            android:src="@drawable/ic_limpa"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            app:tint="@null" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_grava_nota"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            android:backgroundTint="@color/color_primary"
+            android:backgroundTint="@color/green"
             android:src="@drawable/ic_grava"
-            android:layout_margin="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
             app:tint="@null" />
 
     </LinearLayout>

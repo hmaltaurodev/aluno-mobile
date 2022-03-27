@@ -1,8 +1,8 @@
 package com.maltauro.alunomobile.adapters;
 
 import static com.maltauro.alunomobile.utils.Util.raPad;
-import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,7 +74,6 @@ public class TurmaAlunoAdapter extends RecyclerView.Adapter<TurmaAlunoAdapter.Tu
         return new TurmaAlunoViewHolder(view);
     }
 
-    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull TurmaAlunoViewHolder holder, int position) {
         Aluno aluno = alunos.get(position);
@@ -120,24 +119,24 @@ public class TurmaAlunoAdapter extends RecyclerView.Adapter<TurmaAlunoAdapter.Tu
 
         if (quantidadeAulas != aulasMinistradas || emAndamento) {
             holder.textViewStatus.setText("EM ANDAMENTO");
-            holder.textViewStatus.setTextColor(R.color.gray_darker);
+            holder.textViewStatus.setTextColor(Color.parseColor("#616161"));
         }
         else {
             if (porcentagemFrequencia < 70 && media < 60) {
                 holder.textViewStatus.setText("REPROVADO POR NOTA E FALTAS");
-                holder.textViewStatus.setTextColor(R.color.red);
+                holder.textViewStatus.setTextColor(Color.parseColor("#FF0000"));
             }
-            if (porcentagemFrequencia < 70) {
+            else if (porcentagemFrequencia < 70) {
                 holder.textViewStatus.setText("REPROVADO POR FALTAS");
-                holder.textViewStatus.setTextColor(R.color.red);
+                holder.textViewStatus.setTextColor(Color.parseColor("#FF0000"));
             }
             else if (media < 60) {
                 holder.textViewStatus.setText("REPROVADO POR NOTA");
-                holder.textViewStatus.setTextColor(R.color.red);
+                holder.textViewStatus.setTextColor(Color.parseColor("#FF0000"));
             }
             else {
                 holder.textViewStatus.setText("APROVADO");
-                holder.textViewStatus.setTextColor(R.color.green);
+                holder.textViewStatus.setTextColor(Color.parseColor("#008000"));
             }
         }
     }

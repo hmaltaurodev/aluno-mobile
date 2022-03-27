@@ -19,7 +19,7 @@ public class FrequenciaDAO {
             "GROUP BY FREQUENCIA.DISCIPLINA, FREQUENCIA.NUMERO_AULA ";
 
     private static final String SELECT_FREQUENCIA_TURMA_DISCIPLINA_ALUNO = "" +
-            "SELECT .* " +
+            "SELECT * " +
             "FROM FREQUENCIA " +
             "WHERE TURMA_ALUNO = ? " +
             "  AND DISCIPLINA = ? " +

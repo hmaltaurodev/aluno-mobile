@@ -25,14 +25,14 @@
                 android:layout_height="match_parent"
                 android:id="@+id/sp_curso_turma"
                 app:ms_floatingLabelText="@string/curso"
-                app:ms_hint="@string/curso"
+                app:ms_hint="@string/selecione_curso"
                 style="@style/material_spinner"/>
 
         </LinearLayout>
 
         <!--Grade Curricular-->
         <LinearLayout
-            android:id="@+id/ln_grade_curricular"
+            android:id="@+id/ln_grade_curricular_turma"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,14 +43,14 @@
                 android:layout_height="match_parent"
                 android:id="@+id/sp_grade_curricular_turma"
                 app:ms_floatingLabelText="@string/grade_curricular"
-                app:ms_hint="@string/grade_curricular"
+                app:ms_hint="@string/selecione_grade_curricular"
                 style="@style/material_spinner"/>
 
         </LinearLayout>
 
         <!--Ano Período-->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/il_ano_periodo"
+            android:id="@+id/il_ano_periodo_turma"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
 
         <!--Alunos-->
         <LinearLayout
-            android:id="@+id/ln_alunos"
+            android:id="@+id/ln_alunos_turma"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/sp_alunos_turma"
                     app:ms_floatingLabelText="@string/alunos"
-                    app:ms_hint="@string/alunos"
+                    app:ms_hint="@string/selecione_alunos"
                     style="@style/material_spinner"/>
 
             </LinearLayout>
@@ -128,18 +128,42 @@
 
     <LinearLayout
         android:gravity="bottom|end"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_limpa_turma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/color_primary"
+            android:src="@drawable/ic_limpa"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            app:tint="@null" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_cancela_turma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red"
+            android:src="@drawable/ic_cancel"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            app:tint="@null" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_grava_turma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            android:backgroundTint="@color/color_primary"
+            android:backgroundTint="@color/green"
             android:src="@drawable/ic_grava"
-            android:layout_margin="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
             app:tint="@null" />
 
     </LinearLayout>

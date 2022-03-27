@@ -30,10 +30,10 @@
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginStart">10dp</item>
         <item name="android:layout_marginEnd">10dp</item>
-        <item name="boxCornerRadiusTopStart">3dp</item>
-        <item name="boxCornerRadiusTopEnd">3dp</item>
-        <item name="boxCornerRadiusBottomStart">3dp</item>
-        <item name="boxCornerRadiusBottomEnd">3dp</item>
+        <item name="boxCornerRadiusTopStart">0dp</item>
+        <item name="boxCornerRadiusTopEnd">0dp</item>
+        <item name="boxCornerRadiusBottomStart">0dp</item>
+        <item name="boxCornerRadiusBottomEnd">0dp</item>
         <item name="boxBackgroundColor">@color/white</item>
         <item name="boxStrokeWidth">0dp</item>
     </style>

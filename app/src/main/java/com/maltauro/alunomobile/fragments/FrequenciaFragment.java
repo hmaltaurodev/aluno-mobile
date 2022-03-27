@@ -46,6 +46,7 @@ public class FrequenciaFragment extends Fragment {
     private LinearLayout lnDisciplinaFrequencia;
     private LinearLayout lnAulaFrequencia;
     private FloatingActionButton fabGravaFrequencia;
+    private FloatingActionButton fabLimpaFrequencia;
     private List<Aluno> alunos;
 
     @Override
@@ -63,12 +64,14 @@ public class FrequenciaFragment extends Fragment {
         lnDisciplinaFrequencia = activity.findViewById(R.id.ln_disciplina_frequencia);
         lnAulaFrequencia = activity.findViewById(R.id.ln_aula_frequencia);
         fabGravaFrequencia = activity.findViewById(R.id.fab_grava_frequencia);
+        fabLimpaFrequencia = activity.findViewById(R.id.fab_limpa_frequencia);
 
         spCursoFrequencia.setOnItemSelectedListener(cursoListener);
         spTurmaFrequencia.setOnItemSelectedListener(turmaListener);
         spDisciplinaFrequencia.setOnItemSelectedListener(disciplinaListener);
         lvAlunoFrequencia.setOnItemClickListener(alunoListener);
         fabGravaFrequencia.setOnClickListener(view1 -> gravaFrequencia());
+        fabLimpaFrequencia.setOnClickListener(view1 -> limpaCampos());
 
         iniciaSpinner();
     }
@@ -85,20 +88,27 @@ public class FrequenciaFragment extends Fragment {
 
             if (spCursoFrequencia.getSelectedItemPosition() != 0) {
                 lnTurmaFrequencia.setVisibility(View.VISIBLE);
+                fabLimpaFrequencia.setVisibility(View.VISIBLE);
 
                 String idCurso = String.valueOf(((Curso) spCursoFrequencia.getSelectedItem()).getId());
 
                 List<Turma> turmas = TurmaDAO.getListTurmasCurso(idCurso);
                 ArrayAdapter adapterTurmas = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, turmas);
                 spTurmaFrequencia.setAdapter(adapterTurmas);
+
+                if (turmas.size() == 0)
+                    mensagemDialog("Atenção", "Não será possível lançar frequência, pois não existem turmas cadastradas para esse curso!", activity);
             }
-            else
+            else {
                 lnTurmaFrequencia.setVisibility(View.GONE);
+                fabLimpaFrequencia.setVisibility(View.GONE);
+            }
         }
 
         @Override
         public void onNothingSelected(AdapterView<?> adapterView) {
             lnTurmaFrequencia.setVisibility(View.GONE);
+            fabLimpaFrequencia.setVisibility(View.GONE);
         }
     };
 
@@ -172,7 +182,9 @@ public class FrequenciaFragment extends Fragment {
         List<Curso> cursos = CursoDAO.getListCursos("", new String[]{}, "codigo_mec desc");
         ArrayAdapter adapterCursos = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, cursos);
         spCursoFrequencia.setAdapter(adapterCursos);
-        spCursoFrequencia.setSelection(0);
+
+        if (cursos.size() == 0)
+            mensagemDialog("Atenção", "Não será possível lançar frequência, pois não existem cursos cadastrados!", activity);
     }
 
     private boolean validaCampos() {
@@ -217,8 +229,22 @@ public class FrequenciaFragment extends Fragment {
                     Util.showSnackBar(ctFrequencia, "Erro ao salvar a frequência, verifique o log!");
             }
 
-            if (sucesso)
+            if (sucesso) {
                 Util.showSnackBar(ctFrequencia, "Frequência salva com sucesso!");
+                limpaCampos();
+            }
         }
+    }
+
+    private void limpaCampos() {
+        spCursoFrequencia.setSelection(0);
+        spTurmaFrequencia.setSelection(0);
+        spDisciplinaFrequencia.setSelection(0);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        limpaCampos();
     }
 }

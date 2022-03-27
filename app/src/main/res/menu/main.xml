@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_hello_world"
+        android:id="@+id/action_easter_egg"
         android:orderInCategory="100"
-        android:title="@string/action_hello_world"
+        android:title="@string/action_easter_egg"
         app:showAsAction="never" />
 
 </menu>

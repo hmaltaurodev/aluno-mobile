@@ -2,9 +2,14 @@ package com.maltauro.alunomobile;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
+
 import com.google.android.material.navigation.NavigationView;
 import com.maltauro.alunomobile.databinding.ActivityMainBinding;
+import com.maltauro.alunomobile.utils.Util;
 import com.orm.SugarContext;
+
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -39,9 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_turma,
                 R.id.nav_notas,
                 R.id.nav_frequencias,
-                R.id.nav_sobre)
-                .setOpenableLayout(drawer)
-                .build();
+                R.id.nav_sobre).setOpenableLayout(drawer).build();
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
@@ -60,5 +63,16 @@ public class MainActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration) || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_easter_egg:
+                Util.showSnackBar(binding.drawerLayout, "Hello World!");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

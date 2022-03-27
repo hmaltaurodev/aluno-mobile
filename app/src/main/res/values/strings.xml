@@ -53,7 +53,7 @@
     <string name="codigo_mec">Código MEC</string>
     <string name="descricao">Descrição</string>
     <string name="grau_academico">Grau Acadêmico</string>
-    <string name="selecionar_grau_academico">Selecionar Grau Acadêmico</string>
+    <string name="selecione_grau_academico">Selecione um grau acadêmico</string>
     <string name="cad_curso">Cadastro de Curso</string>
     <string name="descricao_placeholder">Descrição</string>
     <string name="codigo_mec_placeholder">0000000</string>
@@ -107,4 +107,18 @@
     <string name="text_view_terceiro_bimestre">3º Bimestre:</string>
     <string name="text_view_quarto_bimestre">4º Bimestre:</string>
     <string name="text_view_media">Média:</string>
+    <string name="selecione_professor">Selecione um professor</string>
+    <string name="selecione_curso">Selecione um curso</string>
+    <string name="selecione_ano_academico">Selecione um ano acadêmico</string>
+    <string name="selecione_regime_academico">Selecione um regime acadêmico</string>
+    <string name="selecione_disciplinas">Selecione e adicione uma disciplina</string>
+    <string name="selecione_grade_curricular">Selecione uma grade curricular</string>
+    <string name="selecione_alunos">Selecione e adicione um aluno</string>
+    <string name="selecione_turma">Selecione uma turma</string>
+    <string name="selecione_disciplina">Selecione uma disciplina</string>
+    <string name="selecione_aula_numero">Selecione uma aula</string>
+    <string name="selecione_aluno">Selecione um aluno</string>
+    <string name="selecione_bimestre">Selecione um bimestre</string>
+    <string name="selecione_semestre_periodo">Selecione um semestre</string>
+    <string name="action_easter_egg">Não existe nenhum easter egg aqui</string>
 </resources>

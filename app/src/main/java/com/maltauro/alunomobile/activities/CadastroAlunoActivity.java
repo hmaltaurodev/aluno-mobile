@@ -22,11 +22,11 @@ import java.util.Objects;
 public class CadastroAlunoActivity extends AppCompatActivity {
 
     private ConstraintLayout ctCadastroAluno;
-    private TextInputEditText edtRa;
-    private TextInputEditText edtNome;
-    private TextInputEditText edtCpf;
-    private TextInputEditText edtDataNascimento;
-    private TextInputEditText edtDataMatricula;
+    private TextInputEditText edtRaAluno;
+    private TextInputEditText edtNomeAluno;
+    private TextInputEditText edtCpfAluno;
+    private TextInputEditText edtDataNascimentoAluno;
+    private TextInputEditText edtDataMatriculaAluno;
     private View dataSelecionada;
     private int dia;
     private int mes;
@@ -37,19 +37,22 @@ public class CadastroAlunoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_aluno);
         ctCadastroAluno = findViewById(R.id.ct_cadastro_aluno);
-
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        edtRa = findViewById(R.id.edt_ra_aluno);
-        edtNome = findViewById(R.id.edt_nome_aluno);
-        edtCpf = findViewById(R.id.edt_cpf_aluno);
-        edtDataNascimento = findViewById(R.id.edt_data_nascimento_aluno);
-        edtDataMatricula = findViewById(R.id.edt_data_matricula_aluno);
+        edtRaAluno = findViewById(R.id.edt_ra_aluno);
+        edtNomeAluno = findViewById(R.id.edt_nome_aluno);
+        edtCpfAluno = findViewById(R.id.edt_cpf_aluno);
+        edtDataNascimentoAluno = findViewById(R.id.edt_data_nascimento_aluno);
+        edtDataMatriculaAluno = findViewById(R.id.edt_data_matricula_aluno);
+        edtCpfAluno.addTextChangedListener(Mask.insert(edtCpfAluno, Mask.maskCPF));
 
-        edtCpf.addTextChangedListener(Mask.insert(edtCpf, Mask.maskCPF));
+        FloatingActionButton fabGravaAluno = findViewById(R.id.fab_grava_aluno);
+        FloatingActionButton fabCancelaAluno = findViewById(R.id.fab_cancela_aluno);
+        FloatingActionButton fabLimpaAluno = findViewById(R.id.fab_limpa_aluno);
 
-        FloatingActionButton fab_grava_aluno = findViewById(R.id.fab_grava_aluno);
-        fab_grava_aluno.setOnClickListener(view -> gravaAluno());
+        fabGravaAluno.setOnClickListener(view -> gravaAluno());
+        fabCancelaAluno.setOnClickListener(view -> finish());
+        fabLimpaAluno.setOnClickListener(view -> limpaCampos());
 
         setDataAtual();
     }
@@ -65,31 +68,31 @@ public class CadastroAlunoActivity extends AppCompatActivity {
     }
 
     private boolean validaCampos() {
-        if (edtRa.getText().toString().equals("")) {
-            edtRa.setError("Informe o RA do aluno!");
-            edtRa.requestFocus();
+        if (edtRaAluno.getText().toString().equals("")) {
+            edtRaAluno.setError("Informe o RA do aluno!");
+            edtRaAluno.requestFocus();
             return false;
         }
 
-        if (edtNome.getText().toString().equals("")) {
-            edtNome.setError("Informe o nome do aluno!");
-            edtNome.requestFocus();
+        if (edtNomeAluno.getText().toString().equals("")) {
+            edtNomeAluno.setError("Informe o nome do aluno!");
+            edtNomeAluno.requestFocus();
             return false;
         }
 
-        if (edtCpf.getText().toString().equals("")) {
-            edtCpf.setError("Informe o CPF do aluno!");
-            edtCpf.requestFocus();
+        if (edtCpfAluno.getText().toString().equals("")) {
+            edtCpfAluno.setError("Informe o CPF do aluno!");
+            edtCpfAluno.requestFocus();
             return false;
         }
 
-        if (edtDataNascimento.getText().toString().equals("")) {
-            edtDataNascimento.setError("Informe a data do nascimento do aluno!");
+        if (edtDataNascimentoAluno.getText().toString().equals("")) {
+            edtDataNascimentoAluno.setError("Informe a data do nascimento do aluno!");
             return false;
         }
 
-        if (edtDataMatricula.getText().toString().equals("")) {
-            edtDataMatricula.setError("Informa a data da matricula do aluno!");
+        if (edtDataMatriculaAluno.getText().toString().equals("")) {
+            edtDataMatriculaAluno.setError("Informa a data da matricula do aluno!");
             return false;
         }
 
@@ -100,11 +103,11 @@ public class CadastroAlunoActivity extends AppCompatActivity {
         if (validaCampos()) {
             Aluno aluno = new Aluno();
 
-            aluno.setRa(Integer.parseInt(edtRa.getText().toString()));
-            aluno.setNome(edtNome.getText().toString());
-            aluno.setCpf(edtCpf.getText().toString());
-            aluno.setDataNascimento(edtDataNascimento.getText().toString());
-            aluno.setDataMatricula(edtDataMatricula.getText().toString());
+            aluno.setRa(Integer.parseInt(edtRaAluno.getText().toString()));
+            aluno.setNome(edtNomeAluno.getText().toString());
+            aluno.setCpf(edtCpfAluno.getText().toString());
+            aluno.setDataNascimento(edtDataNascimentoAluno.getText().toString());
+            aluno.setDataMatricula(edtDataMatriculaAluno.getText().toString());
 
             if (AlunoDAO.salvar(aluno) > 0) {
                 setResult(Activity.RESULT_OK);
@@ -113,6 +116,14 @@ public class CadastroAlunoActivity extends AppCompatActivity {
             else
                 Util.showSnackBar(ctCadastroAluno, "Erro ao salvar o aluno, verifique o log!");
         }
+    }
+
+    private void limpaCampos() {
+        edtRaAluno.setText("");
+        edtNomeAluno.setText("");
+        edtCpfAluno.setText("");
+        edtDataNascimentoAluno.setText("");
+        edtDataMatriculaAluno.setText("");
     }
 
     @Override

@@ -19,24 +19,28 @@ import fr.ganfra.materialspinner.MaterialSpinner;
 public class CadastroCursoActivity extends AppCompatActivity {
 
     private ConstraintLayout ctCadastroCurso;
-    private TextInputEditText edtCodigoMEC;
-    private TextInputEditText edtDescricao;
-    private MaterialSpinner spGrauAcademico;
+    private TextInputEditText edtCodigoMECCurso;
+    private TextInputEditText edtDescricaoCurso;
+    private MaterialSpinner spGrauAcademicoCurso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_curso);
         ctCadastroCurso = findViewById(R.id.ct_cadastro_curso);
-
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        edtCodigoMEC = findViewById(R.id.edt_codigo_mec_curso);
-        edtDescricao = findViewById(R.id.edt_descricao_curso);
-        spGrauAcademico = findViewById(R.id.sp_grau_academico);
+        edtCodigoMECCurso = findViewById(R.id.edt_codigo_mec_curso);
+        edtDescricaoCurso = findViewById(R.id.edt_descricao_curso);
+        spGrauAcademicoCurso = findViewById(R.id.sp_grau_academico_curso);
 
-        FloatingActionButton fab_grava_curso = findViewById(R.id.fab_grava_curso);
-        fab_grava_curso.setOnClickListener(view -> gravaCurso());
+        FloatingActionButton fabGravaCurso = findViewById(R.id.fab_grava_curso);
+        FloatingActionButton fabCancelaCurso = findViewById(R.id.fab_cancela_curso);
+        FloatingActionButton fabLimpaCurso = findViewById(R.id.fab_limpa_curso);
+
+        fabGravaCurso.setOnClickListener(view -> gravaCurso());
+        fabCancelaCurso.setOnClickListener(view -> finish());
+        fabLimpaCurso.setOnClickListener(view -> limpaCampos());
 
         iniciaSpinner();
     }
@@ -53,24 +57,24 @@ public class CadastroCursoActivity extends AppCompatActivity {
 
     private void iniciaSpinner() {
         ArrayAdapter adapterGrauAcademico = new ArrayAdapter(this, android.R.layout.simple_list_item_1, GrauAcademico.values());
-        spGrauAcademico.setAdapter(adapterGrauAcademico);
+        spGrauAcademicoCurso.setAdapter(adapterGrauAcademico);
     }
 
     private boolean validaCampos() {
-        if (edtCodigoMEC.getText().toString().equals("")) {
-            edtCodigoMEC.setError("Informe o código MEC do curso!");
-            edtCodigoMEC.requestFocus();
+        if (edtCodigoMECCurso.getText().toString().equals("")) {
+            edtCodigoMECCurso.setError("Informe o código MEC do curso!");
+            edtCodigoMECCurso.requestFocus();
             return false;
         }
 
-        if (edtDescricao.getText().toString().equals("")) {
-            edtDescricao.setError("Informe a descrição do curso!");
-            edtDescricao.requestFocus();
+        if (edtDescricaoCurso.getText().toString().equals("")) {
+            edtDescricaoCurso.setError("Informe a descrição do curso!");
+            edtDescricaoCurso.requestFocus();
             return false;
         }
 
-        if (spGrauAcademico.getSelectedItemPosition() == 0) {
-            spGrauAcademico.setError("Selecione um grau acadêmico!");
+        if (spGrauAcademicoCurso.getSelectedItemPosition() == 0) {
+            spGrauAcademicoCurso.setError("Selecione um grau acadêmico!");
             return false;
         }
 
@@ -81,9 +85,9 @@ public class CadastroCursoActivity extends AppCompatActivity {
         if (validaCampos()) {
             Curso curso = new Curso();
 
-            curso.setCodigoMEC(Integer.parseInt(edtCodigoMEC.getText().toString()));
-            curso.setDescricao(edtDescricao.getText().toString());
-            curso.setGrauAcademico((GrauAcademico) spGrauAcademico.getSelectedItem());
+            curso.setCodigoMEC(Integer.parseInt(edtCodigoMECCurso.getText().toString()));
+            curso.setDescricao(edtDescricaoCurso.getText().toString());
+            curso.setGrauAcademico((GrauAcademico) spGrauAcademicoCurso.getSelectedItem());
 
             if (CursoDAO.salvar(curso) > 0) {
                 setResult(Activity.RESULT_OK);
@@ -92,5 +96,11 @@ public class CadastroCursoActivity extends AppCompatActivity {
             else
                 Util.showSnackBar(ctCadastroCurso, "Erro ao salvar o curso, verifique o log!");
         }
+    }
+
+    private void limpaCampos() {
+        edtCodigoMECCurso.setText("");
+        edtDescricaoCurso.setText("");
+        spGrauAcademicoCurso.setSelection(0);
     }
 }
