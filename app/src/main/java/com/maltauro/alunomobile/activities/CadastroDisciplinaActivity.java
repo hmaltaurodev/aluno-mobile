@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -120,5 +121,8 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
         edtHorasAulasDisciplina.setText("");
         edtQuantidadeAulasDisciplina.setText("");
         spProfessorDisciplina.setSelection(0);
+
+        InputMethodManager manager = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
+        manager.hideSoftInputFromWindow(ctCadastroDisciplina.getWindowToken(), 0);
     }
 }

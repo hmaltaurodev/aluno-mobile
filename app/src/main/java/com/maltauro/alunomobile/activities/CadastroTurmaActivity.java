@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
@@ -214,6 +215,9 @@ public class CadastroTurmaActivity extends AppCompatActivity {
 
         carregaSpinnerAluno();
         carregaListViewAlunos();
+
+        InputMethodManager manager = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
+        manager.hideSoftInputFromWindow(ctCadastroTurma.getWindowToken(), 0);
     }
 
     private void adicionaAluno() {

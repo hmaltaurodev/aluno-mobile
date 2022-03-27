@@ -8,6 +8,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.DatePicker;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -114,6 +115,9 @@ public class CadastroProfessorActivity extends AppCompatActivity {
         edtNomeProfessor.setText("");
         edtCpfProfessor.setText("");
         edtDataNascimentoProfessor.setText("");
+
+        InputMethodManager manager = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
+        manager.hideSoftInputFromWindow(ctCadastroProfessor.getWindowToken(), 0);
     }
 
     @Override

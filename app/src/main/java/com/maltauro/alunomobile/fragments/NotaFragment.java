@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
@@ -240,6 +241,9 @@ public class NotaFragment extends Fragment {
     private void limpaCampos() {
         spCursoNota.setSelection(0);
         spTurmaNota.setSelection(0);
+
+        InputMethodManager manager = (InputMethodManager) activity.getSystemService(activity.INPUT_METHOD_SERVICE);
+        manager.hideSoftInputFromWindow(ctNota.getWindowToken(), 0);
     }
 
     @Override
