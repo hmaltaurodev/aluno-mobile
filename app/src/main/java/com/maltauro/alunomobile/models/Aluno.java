@@ -3,6 +3,7 @@ package com.maltauro.alunomobile.models;
 import static com.maltauro.alunomobile.utils.Util.raPad;
 import androidx.annotation.NonNull;
 import com.orm.SugarRecord;
+import com.orm.dsl.Ignore;
 
 public class Aluno extends SugarRecord {
 
@@ -11,6 +12,8 @@ public class Aluno extends SugarRecord {
     private String cpf;
     private String dataNascimento;
     private String dataMatricula;
+    @Ignore
+    private boolean precensa;
 
     public Aluno() { }
 
@@ -52,6 +55,14 @@ public class Aluno extends SugarRecord {
 
     public void setDataMatricula(String dataMatricula) {
         this.dataMatricula = dataMatricula;
+    }
+
+    public boolean isPrecensa() {
+        return precensa;
+    }
+
+    public void marcaDesmarcaPrecensa() {
+        this.precensa = !this.precensa;
     }
 
     @NonNull

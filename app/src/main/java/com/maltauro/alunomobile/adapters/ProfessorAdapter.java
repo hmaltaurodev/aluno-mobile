@@ -13,8 +13,8 @@ import java.util.List;
 
 public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.ProfessorViewHolder> {
 
-    private List<Professor> professores;
-    private Context context;
+    private final List<Professor> professores;
+    private final Context context;
 
     public ProfessorAdapter(List<Professor> professores, Context context) {
         this.professores = professores;

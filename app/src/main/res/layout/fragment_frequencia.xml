@@ -34,8 +34,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:id="@+id/ln_turma_frequencia"
+            android:visibility="gone"
             style="@style/layout_spinner">
 
             <fr.ganfra.materialspinner.MaterialSpinner
@@ -52,8 +52,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:id="@+id/ln_disciplina_frequencia"
+            android:visibility="gone"
             style="@style/layout_spinner">
 
             <fr.ganfra.materialspinner.MaterialSpinner
@@ -66,10 +66,28 @@
 
         </LinearLayout>
 
+        <!--Aula Número-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ln_aula_frequencia"
+            android:visibility="gone"
+            style="@style/layout_spinner">
+
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/sp_aula_frequencia"
+                app:ms_floatingLabelText="@string/aula_numero"
+                app:ms_hint="@string/aula_numero"
+                style="@style/material_spinner"/>
+
+        </LinearLayout>
+
         <!--Alunos-->
         <ListView
-            android:visibility="gone"
             android:id="@+id/lv_aluno_frequencia"
+            android:visibility="gone"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
@@ -88,6 +106,7 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_grava_frequencia"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/color_primary"

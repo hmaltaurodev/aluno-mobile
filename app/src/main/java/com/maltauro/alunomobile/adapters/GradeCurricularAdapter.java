@@ -13,8 +13,8 @@ import java.util.List;
 
 public class GradeCurricularAdapter extends RecyclerView.Adapter<GradeCurricularAdapter.GradeCurricularViewHolder> {
 
-    private List<GradeCurricular> gradesCurriculares;
-    private Context context;
+    private final List<GradeCurricular> gradesCurriculares;
+    private final Context context;
 
     public GradeCurricularAdapter(List<GradeCurricular> gradesCurriculares, Context context) {
         this.gradesCurriculares = gradesCurriculares;

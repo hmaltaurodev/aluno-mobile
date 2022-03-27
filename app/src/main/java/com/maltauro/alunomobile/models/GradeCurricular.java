@@ -5,7 +5,6 @@ import com.maltauro.alunomobile.enums.AnoAcademico;
 import com.maltauro.alunomobile.enums.RegimeAcademico;
 import com.maltauro.alunomobile.enums.SemestrePeriodo;
 import com.orm.SugarRecord;
-import java.util.Objects;
 
 public class GradeCurricular extends SugarRecord {
 

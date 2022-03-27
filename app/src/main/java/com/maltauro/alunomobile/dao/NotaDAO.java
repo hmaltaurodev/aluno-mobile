@@ -2,7 +2,6 @@ package com.maltauro.alunomobile.dao;
 
 import android.util.Log;
 import com.maltauro.alunomobile.models.Nota;
-import java.util.ArrayList;
 import java.util.List;
 
 public class NotaDAO {
@@ -14,6 +13,13 @@ public class NotaDAO {
             "  AND DISCIPLINA = ? " +
             "  AND BIMESTRE = ? ";
 
+    private static final String SELECT_NOTAS_ALUNO_DISCIPLINA = "" +
+            "SELECT NOTA.* " +
+            "FROM NOTA " +
+            "WHERE NOTA.TURMA_ALUNO = ? " +
+            "  AND NOTA.DISCIPLINA = ? " +
+            "ORDER BY NOTA.BIMESTRE ASC ";
+
     public static long salvar(Nota nota) {
         try {
             return nota.save();
@@ -24,19 +30,9 @@ public class NotaDAO {
         }
     }
 
-    public static Nota getNota(int id) {
+    public static Nota getNotaExistente(long idTurmaAluno, long idDisciplina, int bimestre) {
         try {
-            return Nota.findById(Nota.class, id);
-        }
-        catch (Exception ex) {
-            Log.e("Erro", "Erro ao buscar a nota: " + ex.getMessage());
-            return null;
-        }
-    }
-
-    public static Nota getNotaExistente(String... arguments) {
-        try {
-            return Nota.findWithQuery(Nota.class, SELECT_NOTA_EXISTENTE, arguments).get(0);
+            return Nota.findWithQuery(Nota.class, SELECT_NOTA_EXISTENTE, String.valueOf(idTurmaAluno), String.valueOf(idDisciplina), String.valueOf(bimestre)).get(0);
         }
         catch (Exception ex) {
             Log.e("Erro", "Erro ao buscar a lista de notas: " + ex.getMessage());
@@ -44,16 +40,13 @@ public class NotaDAO {
         }
     }
 
-    public static List<Nota> getListNotas(String where, String[] whererArgs, String orderBy) {
-        List<Nota> notas = new ArrayList<>();
-
+    public static List<Nota> getNotasAlunoDisciplina(long idTurmaAluno, long idDisciplina) {
         try {
-            notas = Nota.find(Nota.class, where, whererArgs, null, orderBy, null);
+            return Nota.findWithQuery(Nota.class, SELECT_NOTAS_ALUNO_DISCIPLINA, String.valueOf(idTurmaAluno), String.valueOf(idDisciplina));
         }
         catch (Exception ex) {
             Log.e("Erro", "Erro ao buscar a lista de notas: " + ex.getMessage());
+            return null;
         }
-
-        return notas;
     }
 }

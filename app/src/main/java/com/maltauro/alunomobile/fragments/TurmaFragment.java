@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.maltauro.alunomobile.R;
 import com.maltauro.alunomobile.activities.CadastroTurmaActivity;
-import com.maltauro.alunomobile.activities.DetalheTurmaActivity;
+import com.maltauro.alunomobile.activities.ListaTurmaDisciplinasActivity;
 import com.maltauro.alunomobile.adapters.TurmaAdapter;
 import com.maltauro.alunomobile.dao.TurmaDAO;
 import com.maltauro.alunomobile.models.Turma;
@@ -28,44 +28,34 @@ public class TurmaFragment extends Fragment {
     private Activity activity;
     private ConstraintLayout ctTurma;
     private RecyclerView rvListaTurmas;
+    private List<Turma> turmas;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         activity = requireActivity();
         ctTurma = view.findViewById(R.id.ct_turma);
-        rvListaTurmas = activity.findViewById(R.id.rv_lista_turmas);
 
         FloatingActionButton fabAddTurma = view.findViewById(R.id.fab_add_turma);
         fabAddTurma.setOnClickListener(view1 -> addTurma());
 
-        atualizaListaTurmas();
-
+        rvListaTurmas = activity.findViewById(R.id.rv_lista_turmas);
         rvListaTurmas.addOnItemTouchListener(new RecyclerItemClickListener(activity, rvListaTurmas, new RecyclerItemClickListener.OnItemClickListener() {
-                @Override public void onItemClick(View view, int position) {
-                    Intent intent = new Intent(activity, DetalheTurmaActivity.class);
-                    startActivity(intent);
-                }
+            @Override public void onItemClick(View view, int position) {
+                Intent intent = new Intent(activity, ListaTurmaDisciplinasActivity.class);
+                intent.putExtra("idTurma", turmas.get(position).getId());
+                startActivity(intent);
+            }
 
-                @Override public void onLongItemClick(View view, int position) { }
-            })
-        );
+            @Override public void onLongItemClick(View view, int position) { }
+        }));
+
+        atualizaListaTurmas();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_turma, container, false);
-    }
-
-    private void addTurma() {
-        Intent intent = new Intent(activity, CadastroTurmaActivity.class);
-        startActivityForResult(intent, 1);
-    }
-
-    private void atualizaListaTurmas() {
-        List<Turma> turmas = TurmaDAO.getListTurmas("", new String[]{}, "ano_periodo desc");
-        rvListaTurmas.setLayoutManager(new LinearLayoutManager(activity));
-        rvListaTurmas.setAdapter(new TurmaAdapter(turmas, activity));
     }
 
     @Override
@@ -76,5 +66,16 @@ public class TurmaFragment extends Fragment {
             Util.showSnackBar(ctTurma, "Turma salva com sucesso!");
             atualizaListaTurmas();
         }
+    }
+
+    private void addTurma() {
+        Intent intent = new Intent(activity, CadastroTurmaActivity.class);
+        startActivityForResult(intent, 1);
+    }
+
+    private void atualizaListaTurmas() {
+        turmas = TurmaDAO.getListTurmas("", new String[]{}, "ano_periodo desc");
+        rvListaTurmas.setLayoutManager(new LinearLayoutManager(activity));
+        rvListaTurmas.setAdapter(new TurmaAdapter(turmas, activity));
     }
 }

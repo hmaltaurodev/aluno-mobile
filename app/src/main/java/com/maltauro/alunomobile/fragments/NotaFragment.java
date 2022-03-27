@@ -184,22 +184,18 @@ public class NotaFragment extends Fragment {
             return false;
         }
 
-        if (edtNota.getText().toString() == "") {
+        if (edtNota.getText().toString().equals("")) {
             edtNota.setError("Informe uma nota!");
             return false;
         }
 
-        String idTurma = String.valueOf(((Turma) spTurmaNota.getSelectedItem()).getId());
-        String idAluno = String.valueOf(((Aluno) spAlunoNota.getSelectedItem()).getId());
-        TurmaAluno turmaAluno = TurmaAlunoDAO.getListTurmaAlunos("TURMA = ? AND ALUNO = ?", new String[]{ idTurma, idAluno }, "").get(0);
-        Disciplina disciplina = (Disciplina) spDisciplinaNota.getSelectedItem();
+        long idTurma = ((Turma) spTurmaNota.getSelectedItem()).getId();
+        long idAluno = ((Aluno) spAlunoNota.getSelectedItem()).getId();
+        long idTurmaAluno = TurmaAlunoDAO.getListTurmaAlunos("TURMA = ? AND ALUNO = ?", new String[]{ String.valueOf(idTurma), String.valueOf(idAluno) }, "").get(0).getId();
+        long idDisciplina = ((Disciplina) spDisciplinaNota.getSelectedItem()).getId();
         int bimestre = spBimestreNota.getSelectedItemPosition();
 
-        Nota nota = NotaDAO.getNotaExistente(
-                String.valueOf(turmaAluno.getId()),
-                String.valueOf(disciplina.getId()),
-                String.valueOf(bimestre));
-
+        Nota nota = NotaDAO.getNotaExistente(idTurmaAluno, idDisciplina, bimestre);
         if (nota != null) {
             mensagemDialog("Atenção", "Já existe uma nota cadastrada para esse aluno, disciplina e bimestre!", activity);
             return false;
@@ -210,11 +206,11 @@ public class NotaFragment extends Fragment {
 
     private void gravaNota() {
         if (validaCampos()) {
-            Nota nota = new Nota();
+            long idTurma = ((Turma) spTurmaNota.getSelectedItem()).getId();
+            long idAluno = ((Aluno) spAlunoNota.getSelectedItem()).getId();
+            TurmaAluno turmaAluno = TurmaAlunoDAO.getListTurmaAlunos("TURMA = ? AND ALUNO = ?", new String[]{ String.valueOf(idTurma), String.valueOf(idAluno) }, "").get(0);
 
-            String idTurma = String.valueOf(((Turma) spTurmaNota.getSelectedItem()).getId());
-            String idAluno = String.valueOf(((Aluno) spAlunoNota.getSelectedItem()).getId());
-            TurmaAluno turmaAluno = TurmaAlunoDAO.getListTurmaAlunos("TURMA = ? AND ALUNO = ?", new String[]{ idTurma, idAluno }, "").get(0);
+            Nota nota = new Nota();
 
             nota.setTurmaAluno(turmaAluno);
             nota.setDisciplina((Disciplina) spDisciplinaNota.getSelectedItem());

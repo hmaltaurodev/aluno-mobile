@@ -13,8 +13,8 @@ import java.util.List;
 
 public class TurmaAdapter extends RecyclerView.Adapter<TurmaAdapter.TurmaViewHolder> {
 
-    private List<Turma> turmas;
-    private Context context;
+    private final List<Turma> turmas;
+    private final Context context;
 
     public TurmaAdapter(List<Turma> turmas, Context context) {
         this.turmas = turmas;

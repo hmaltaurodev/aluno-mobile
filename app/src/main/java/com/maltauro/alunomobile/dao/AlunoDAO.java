@@ -29,16 +29,6 @@ public class AlunoDAO {
         }
     }
 
-    public static Aluno getAluno(int id) {
-        try {
-            return Aluno.findById(Aluno.class, id);
-        }
-        catch (Exception ex) {
-            Log.e("Erro", "Erro ao buscar o aluno: " + ex.getMessage());
-            return null;
-        }
-    }
-
     public static List<Aluno> getListAlunosSemTurma() {
         List<Aluno> alunos = new ArrayList<>();
 

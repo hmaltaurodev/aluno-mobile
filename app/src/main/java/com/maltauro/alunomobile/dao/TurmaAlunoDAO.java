@@ -17,16 +17,6 @@ public class TurmaAlunoDAO {
         }
     }
 
-    public static TurmaAluno getTurmaAluno(int id) {
-        try {
-            return TurmaAluno.findById(TurmaAluno.class, id);
-        }
-        catch (Exception ex) {
-            Log.e("Erro", "Erro ao buscar o aluno da turma: " + ex.getMessage());
-            return null;
-        }
-    }
-
     public static List<TurmaAluno> getListTurmaAlunos(String where, String[] whererArgs, String orderBy) {
         List<TurmaAluno> turmasAlunos = new ArrayList<>();
 

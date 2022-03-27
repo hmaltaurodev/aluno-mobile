@@ -32,6 +32,8 @@
 
         <!--Grade Curricular-->
         <LinearLayout
+            android:id="@+id/ln_grade_curricular"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/layout_spinner">
@@ -48,6 +50,8 @@
 
         <!--Ano Período-->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/il_ano_periodo"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/ano_periodo"
@@ -64,6 +68,8 @@
 
         <!--Alunos-->
         <LinearLayout
+            android:id="@+id/ln_alunos"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -109,6 +115,7 @@
         </LinearLayout>
 
         <ListView
+            android:visibility="gone"
             android:id="@+id/lv_aluno_turma"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
@@ -129,6 +136,7 @@
             android:id="@+id/fab_grava_turma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:backgroundTint="@color/color_primary"
             android:src="@drawable/ic_grava"
             android:layout_margin="10dp"

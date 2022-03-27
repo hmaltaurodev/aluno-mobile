@@ -2,8 +2,6 @@ package com.maltauro.alunomobile.dao;
 
 import android.util.Log;
 import com.maltauro.alunomobile.models.Disciplina;
-import com.maltauro.alunomobile.models.Professor;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +25,7 @@ public class DisciplinaDAO {
         }
     }
 
-    public static Disciplina getDisciplina(int id) {
+    public static Disciplina getDisciplina(long id) {
         try {
             return Disciplina.findById(Disciplina.class, id);
         }

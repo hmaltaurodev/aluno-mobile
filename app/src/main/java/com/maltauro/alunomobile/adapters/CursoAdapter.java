@@ -13,8 +13,8 @@ import java.util.List;
 
 public class CursoAdapter extends RecyclerView.Adapter<CursoAdapter.CursoViewHolder> {
 
-    private List<Curso> cursos;
-    private Context context;
+    private final List<Curso> cursos;
+    private final Context context;
 
     public CursoAdapter(List<Curso> cursos, Context context) {
         this.cursos = cursos;

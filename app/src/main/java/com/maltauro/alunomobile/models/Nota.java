@@ -12,10 +12,6 @@ public class Nota extends SugarRecord {
 
     public Nota() { }
 
-    public TurmaAluno getTurmaAluno() {
-        return turmaAluno;
-    }
-
     public void setTurmaAluno(TurmaAluno turmaAluno) {
         this.turmaAluno = turmaAluno;
     }
@@ -26,10 +22,6 @@ public class Nota extends SugarRecord {
 
     public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
-    }
-
-    public Bimestre getBimestre() {
-        return Bimestre.getById(bimestre);
     }
 
     public void setBimestre(int bimestre) {

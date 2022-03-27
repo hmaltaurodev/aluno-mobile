@@ -6,7 +6,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.maltauro.alunomobile.R;
@@ -29,92 +32,122 @@ import fr.ganfra.materialspinner.MaterialSpinner;
 
 public class CadastroGradeCurricularActivity extends AppCompatActivity {
 
-    ConstraintLayout ctCadastroGradeCurricular;
-    MaterialSpinner spCursoGradeCurricular;
-    MaterialSpinner spAnoAcademicoGradeCurricular;
-    MaterialSpinner spRegimeAcademicoGradeCurricular;
-    MaterialSpinner spSemestrePeriodoGradeCurricular;
-    MaterialSpinner spDisciplinasGradeCurricular;
-    ListView lvDisciplinasGradeCurricular;
-    List<Disciplina> disciplinas = new ArrayList<>();
-    List<Disciplina> disciplinasGradeCurricular = new ArrayList<>();
+    private ConstraintLayout ctCadastroGradeCurricular;
+    private MaterialSpinner spCurso;
+    private MaterialSpinner spAnoAcademico;
+    private MaterialSpinner spRegimeAcademico;
+    private MaterialSpinner spSemestrePeriodo;
+    private MaterialSpinner spDisciplinas;
+    private ListView lvDisciplinas;
+    private LinearLayout lnSemestrePeriodo;
+    private List<Disciplina> disciplinas = new ArrayList<>();
+    private final List<Disciplina> disciplinasGradeCurricular = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_grade_curricular);
+        ctCadastroGradeCurricular = findViewById(R.id.ct_cadastro_grade_curricular);
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        spCursoGradeCurricular = findViewById(R.id.sp_curso_grade_curricular);
-        spAnoAcademicoGradeCurricular = findViewById(R.id.sp_ano_academico_grade_curricular);
-        spRegimeAcademicoGradeCurricular = findViewById(R.id.sp_regime_academico_grade_curricular);
-        spSemestrePeriodoGradeCurricular = findViewById(R.id.sp_semestre_periodo_grade_curricular);
-        spDisciplinasGradeCurricular = findViewById(R.id.sp_disciplinas_grade_curricular);
-        ctCadastroGradeCurricular = findViewById(R.id.ct_cadastro_grade_curricular);
-        lvDisciplinasGradeCurricular = findViewById(R.id.lv_disciplinas_grade_curricular);
+        spCurso = findViewById(R.id.sp_curso_grade_curricular);
+        spAnoAcademico = findViewById(R.id.sp_ano_academico_grade_curricular);
+        spRegimeAcademico = findViewById(R.id.sp_regime_academico_grade_curricular);
+        spSemestrePeriodo = findViewById(R.id.sp_semestre_periodo_grade_curricular);
+        spDisciplinas = findViewById(R.id.sp_disciplinas_grade_curricular);
+        lvDisciplinas = findViewById(R.id.lv_disciplinas_grade_curricular);
+        lnSemestrePeriodo = findViewById(R.id.ln_semestre_periodo);
 
         FloatingActionButton fabAddDisciplina = findViewById(R.id.fab_add_disciplina);
         FloatingActionButton fabGravaGradeCurricular = findViewById(R.id.fab_grava_grade_curricular);
 
+        spRegimeAcademico.setOnItemSelectedListener(regimeAcademicoListener);
         fabAddDisciplina.setOnClickListener(view -> adicionaDisciplina());
         fabGravaGradeCurricular.setOnClickListener(view -> gravaGradeCurricular());
 
         iniciaSpinners();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private final AdapterView.OnItemSelectedListener regimeAcademicoListener = new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            spSemestrePeriodo.setSelection(0);
+
+            if (spRegimeAcademico.getSelectedItemPosition() == 1)
+                lnSemestrePeriodo.setVisibility(View.VISIBLE);
+            else
+                lnSemestrePeriodo.setVisibility(View.GONE);
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> adapterView) {
+            lnSemestrePeriodo.setVisibility(View.GONE);
+        }
+    };
+
     private void iniciaSpinners() {
         List<Curso> cursos = CursoDAO.getListCursos("", new String[]{}, "descricao asc");
         ArrayAdapter adapterCursos = new ArrayAdapter(this, android.R.layout.simple_list_item_1, cursos);
-        spCursoGradeCurricular.setAdapter(adapterCursos);
+        spCurso.setAdapter(adapterCursos);
 
         ArrayAdapter adapterAnoAcademico = new ArrayAdapter(this, android.R.layout.simple_list_item_1, AnoAcademico.values());
-        spAnoAcademicoGradeCurricular.setAdapter(adapterAnoAcademico);
+        spAnoAcademico.setAdapter(adapterAnoAcademico);
 
         ArrayAdapter adapterRegimeAcademico = new ArrayAdapter(this, android.R.layout.simple_list_item_1, RegimeAcademico.values());
-        spRegimeAcademicoGradeCurricular.setAdapter(adapterRegimeAcademico);
+        spRegimeAcademico.setAdapter(adapterRegimeAcademico);
 
         ArrayAdapter adapterSemestrePeriodo = new ArrayAdapter(this, android.R.layout.simple_list_item_1, SemestrePeriodo.values());
-        spSemestrePeriodoGradeCurricular.setAdapter(adapterSemestrePeriodo);
+        spSemestrePeriodo.setAdapter(adapterSemestrePeriodo);
 
         disciplinas = DisciplinaDAO.getListDisciplinas("", new String[]{}, "descricao asc");
         ArrayAdapter adapterDisciplinas = new ArrayAdapter(this, android.R.layout.simple_list_item_1, disciplinas);
-        spDisciplinasGradeCurricular.setAdapter(adapterDisciplinas);
+        spDisciplinas.setAdapter(adapterDisciplinas);
     }
 
     private boolean validaCampos() {
-        if (spCursoGradeCurricular.getSelectedItemPosition() == 0) {
-            spCursoGradeCurricular.setError("Selecione um curso!");
+        if (spCurso.getSelectedItemPosition() == 0) {
+            spCurso.setError("Selecione um curso!");
             return false;
         }
 
-        if (spAnoAcademicoGradeCurricular.getSelectedItemPosition() == 0) {
-            spAnoAcademicoGradeCurricular.setError("Selecione um ano acâdemico!");
+        if (spAnoAcademico.getSelectedItemPosition() == 0) {
+            spAnoAcademico.setError("Selecione um ano acâdemico!");
             return false;
         }
 
-        if (spRegimeAcademicoGradeCurricular.getSelectedItemPosition() == 0) {
-            spRegimeAcademicoGradeCurricular.setError("Selecione um regime acâdemico!");
+        if (spRegimeAcademico.getSelectedItemPosition() == 0) {
+            spRegimeAcademico.setError("Selecione um regime acâdemico!");
             return false;
         }
 
-        if (spRegimeAcademicoGradeCurricular.getSelectedItemPosition() == 1 &&
-            spSemestrePeriodoGradeCurricular.getSelectedItemPosition() == 0) {
-            spSemestrePeriodoGradeCurricular.setError("Selecione um semestre!");
+        if (spRegimeAcademico.getSelectedItemPosition() == 1 &&
+            spSemestrePeriodo.getSelectedItemPosition() == 0) {
+            spSemestrePeriodo.setError("Selecione um semestre!");
             return false;
         }
 
-        Curso curso = (Curso) spCursoGradeCurricular.getSelectedItem();
-        int anoAcademico = spAnoAcademicoGradeCurricular.getSelectedItemPosition();
-        int regimeAcademico = spRegimeAcademicoGradeCurricular.getSelectedItemPosition();
-        int semestrePeriodo = spSemestrePeriodoGradeCurricular.getSelectedItemPosition();
+        if (disciplinasGradeCurricular.size() == 0) {
+            spDisciplinas.setError("Adicione ou menos uma disciplina a grade curricular!");
+            return false;
+        }
 
-        GradeCurricular gradeCurricular = GradeCurricularDAO.getGradeCurricular(
-                String.valueOf(curso.getId()),
-                String.valueOf(anoAcademico),
-                String.valueOf(regimeAcademico),
-                String.valueOf(semestrePeriodo));
+        long idCurso = ((Curso) spCurso.getSelectedItem()).getId();
+        int anoAcademico = spAnoAcademico.getSelectedItemPosition();
+        int regimeAcademico = spRegimeAcademico.getSelectedItemPosition();
+        int semestrePeriodo = spSemestrePeriodo.getSelectedItemPosition();
 
+        GradeCurricular gradeCurricular = GradeCurricularDAO.getGradeCurricularExistente(idCurso, anoAcademico, regimeAcademico, semestrePeriodo);
         if (gradeCurricular != null) {
             String mensagem = (semestrePeriodo != 0) ? ", ano acâdemico e semestre!" : " e ano acâdemico!";
             mensagemDialog("Atenção", "Já existe uma grade curricular ativa para esse curso" + mensagem, this);
@@ -128,10 +161,10 @@ public class CadastroGradeCurricularActivity extends AppCompatActivity {
         if (validaCampos()) {
             GradeCurricular gradeCurricular = new GradeCurricular();
 
-            gradeCurricular.setCurso((Curso) spCursoGradeCurricular.getSelectedItem());
-            gradeCurricular.setAnoAcademico(spAnoAcademicoGradeCurricular.getSelectedItemPosition());
-            gradeCurricular.setRegimeAcademico(spRegimeAcademicoGradeCurricular.getSelectedItemPosition());
-            gradeCurricular.setSemestrePeriodo(spSemestrePeriodoGradeCurricular.getSelectedItemPosition());
+            gradeCurricular.setCurso((Curso) spCurso.getSelectedItem());
+            gradeCurricular.setAnoAcademico(spAnoAcademico.getSelectedItemPosition());
+            gradeCurricular.setRegimeAcademico(spRegimeAcademico.getSelectedItemPosition());
+            gradeCurricular.setSemestrePeriodo(spSemestrePeriodo.getSelectedItemPosition());
 
             if (GradeCurricularDAO.salvar(gradeCurricular) > 0) {
                 for (Disciplina disciplina : disciplinasGradeCurricular) {
@@ -153,22 +186,12 @@ public class CadastroGradeCurricularActivity extends AppCompatActivity {
     }
 
     private void adicionaDisciplina() {
-        Disciplina disciplina = (Disciplina) spDisciplinasGradeCurricular.getSelectedItem();
+        Disciplina disciplina = (Disciplina) spDisciplinas.getSelectedItem();
         disciplinasGradeCurricular.add(disciplina);
         disciplinas.remove(disciplina);
-        spDisciplinasGradeCurricular.setSelection(0);
+        spDisciplinas.setSelection(0);
 
         ArrayAdapter adapterDisciplinas = new ArrayAdapter(this, android.R.layout.simple_list_item_1, disciplinasGradeCurricular);
-        lvDisciplinasGradeCurricular.setAdapter(adapterDisciplinas);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        lvDisciplinas.setAdapter(adapterDisciplinas);
     }
 }

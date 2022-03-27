@@ -1,12 +1,7 @@
 package com.maltauro.alunomobile.models;
 
 import androidx.annotation.NonNull;
-
-import com.maltauro.alunomobile.enums.AnoAcademico;
-import com.maltauro.alunomobile.enums.SemestrePeriodo;
 import com.orm.SugarRecord;
-
-import java.util.Objects;
 
 public class Turma extends SugarRecord {
 
@@ -36,7 +31,7 @@ public class Turma extends SugarRecord {
     public String toString() {
         String anoAcademico = this.gradeCurricular.getAnoAcademico().toString();
 
-        if (this.gradeCurricular.getSemestrePeriodo().getId() != 0)
+        if (this.gradeCurricular.getSemestrePeriodo() != null)
             return String.format("%s - %s/%s", this.anoPeriodo, anoAcademico, this.gradeCurricular.getSemestrePeriodo().toString());
         return String.format("%s - %s", this.anoPeriodo, anoAcademico);
     }

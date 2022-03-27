@@ -17,16 +17,6 @@ public class CursoDAO {
         }
     }
 
-    public static Curso getCurso(int id) {
-        try {
-            return Curso.findById(Curso.class, id);
-        }
-        catch (Exception ex) {
-            Log.e("Erro", "Erro ao buscar o curso: " + ex.getMessage());
-            return null;
-        }
-    }
-
     public static List<Curso> getListCursos(String where, String[] whererArgs, String orderBy) {
         List<Curso> cursos = new ArrayList<>();
 

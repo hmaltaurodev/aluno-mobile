@@ -13,6 +13,12 @@ public class TurmaDAO {
             "INNER JOIN GRADE_CURRICULAR ON TURMA.GRADE_CURRICULAR = GRADE_CURRICULAR.ID " +
             "WHERE GRADE_CURRICULAR.CURSO = ? ";
 
+    private static final String SELECT_TURMA_EXISTENTE = "" +
+            "SELECT * " +
+            "FROM TURMA " +
+            "WHERE GRADE_CURRICULAR = ? " +
+            "  AND ANO_PERIODO = ? ";
+
     public static long salvar(Turma turma) {
         try {
             return turma.save();
@@ -20,16 +26,6 @@ public class TurmaDAO {
         catch (Exception ex) {
             Log.e("Erro", "Erro ao salvar a turma: " + ex.getMessage());
             return -1;
-        }
-    }
-
-    public static Turma getTurma(int id) {
-        try {
-            return Turma.findById(Turma.class, id);
-        }
-        catch (Exception ex) {
-            Log.e("Erro", "Erro ao buscar a turma: " + ex.getMessage());
-            return null;
         }
     }
 
@@ -44,6 +40,16 @@ public class TurmaDAO {
         }
 
         return turmas;
+    }
+
+    public static Turma getTurmaExistente(long idGradeCurricular, int anoPeriodo) {
+        try {
+            return Turma.findWithQuery(Turma.class, SELECT_TURMA_EXISTENTE, String.valueOf(idGradeCurricular), String.valueOf(anoPeriodo)).get(0);
+        }
+        catch (Exception ex) {
+            Log.e("Erro", "Erro ao buscar a turma: " + ex.getMessage());
+            return null;
+        }
     }
 
     public static List<Turma> getListTurmasCurso(String idCurso) {

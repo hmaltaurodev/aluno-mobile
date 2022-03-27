@@ -14,8 +14,8 @@ import java.util.List;
 
 public class AlunoAdapter extends RecyclerView.Adapter<AlunoAdapter.AlunoViewHolder> {
 
-    private List<Aluno> alunos;
-    private Context context;
+    private final List<Aluno> alunos;
+    private final Context context;
 
     public AlunoAdapter(List<Aluno> alunos, Context context) {
         this.alunos = alunos;

@@ -18,27 +18,37 @@ import fr.ganfra.materialspinner.MaterialSpinner;
 
 public class CadastroCursoActivity extends AppCompatActivity {
 
-    private TextInputEditText edtCodigoMECCurso;
-    private TextInputEditText edtDescricaoCurso;
-    private MaterialSpinner spGrauAcademico;
     private ConstraintLayout ctCadastroCurso;
+    private TextInputEditText edtCodigoMEC;
+    private TextInputEditText edtDescricao;
+    private MaterialSpinner spGrauAcademico;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_curso);
+        ctCadastroCurso = findViewById(R.id.ct_cadastro_curso);
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        edtCodigoMECCurso = findViewById(R.id.edt_codigo_mec_curso);
-        edtDescricaoCurso = findViewById(R.id.edt_descricao_curso);
+        edtCodigoMEC = findViewById(R.id.edt_codigo_mec_curso);
+        edtDescricao = findViewById(R.id.edt_descricao_curso);
         spGrauAcademico = findViewById(R.id.sp_grau_academico);
-        ctCadastroCurso = findViewById(R.id.ct_cadastro_curso);
 
         FloatingActionButton fab_grava_curso = findViewById(R.id.fab_grava_curso);
         fab_grava_curso.setOnClickListener(view -> gravaCurso());
 
         iniciaSpinner();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void iniciaSpinner() {
@@ -47,15 +57,15 @@ public class CadastroCursoActivity extends AppCompatActivity {
     }
 
     private boolean validaCampos() {
-        if (edtCodigoMECCurso.getText().toString().equals("")) {
-            edtCodigoMECCurso.setError("Informe o código MEC do curso!");
-            edtCodigoMECCurso.requestFocus();
+        if (edtCodigoMEC.getText().toString().equals("")) {
+            edtCodigoMEC.setError("Informe o código MEC do curso!");
+            edtCodigoMEC.requestFocus();
             return false;
         }
 
-        if (edtDescricaoCurso.getText().toString().equals("")) {
-            edtDescricaoCurso.setError("Informe a descrição do curso!");
-            edtDescricaoCurso.requestFocus();
+        if (edtDescricao.getText().toString().equals("")) {
+            edtDescricao.setError("Informe a descrição do curso!");
+            edtDescricao.requestFocus();
             return false;
         }
 
@@ -71,8 +81,8 @@ public class CadastroCursoActivity extends AppCompatActivity {
         if (validaCampos()) {
             Curso curso = new Curso();
 
-            curso.setCodigoMEC(Integer.parseInt(edtCodigoMECCurso.getText().toString()));
-            curso.setDescricao(edtDescricaoCurso.getText().toString());
+            curso.setCodigoMEC(Integer.parseInt(edtCodigoMEC.getText().toString()));
+            curso.setDescricao(edtDescricao.getText().toString());
             curso.setGrauAcademico((GrauAcademico) spGrauAcademico.getSelectedItem());
 
             if (CursoDAO.salvar(curso) > 0) {
@@ -82,15 +92,5 @@ public class CadastroCursoActivity extends AppCompatActivity {
             else
                 Util.showSnackBar(ctCadastroCurso, "Erro ao salvar o curso, verifique o log!");
         }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

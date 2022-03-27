@@ -13,8 +13,8 @@ import java.util.List;
 
 public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.DisciplinaViewHolder> {
 
-    private List<Disciplina> disciplinas;
-    private Context context;
+    private final List<Disciplina> disciplinas;
+    private final Context context;
 
     public DisciplinaAdapter(List<Disciplina> disciplinas, Context context) {
         this.disciplinas = disciplinas;

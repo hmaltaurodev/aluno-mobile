@@ -9,10 +9,6 @@ public class GradeCurricularDisciplina extends SugarRecord {
 
     public GradeCurricularDisciplina() { }
 
-    public GradeCurricular getGradeCurricular() {
-        return gradeCurricular;
-    }
-
     public void setGradeCurricular(GradeCurricular gradeCurricular) {
         this.gradeCurricular = gradeCurricular;
     }

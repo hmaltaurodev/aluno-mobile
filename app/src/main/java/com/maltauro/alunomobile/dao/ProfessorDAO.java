@@ -17,16 +17,6 @@ public class ProfessorDAO {
         }
     }
 
-    public static Professor getProfessor(int id) {
-        try {
-            return Professor.findById(Professor.class, id);
-        }
-        catch (Exception ex) {
-            Log.e("Erro", "Erro ao buscar o professor: " + ex.getMessage());
-            return null;
-        }
-    }
-
     public static List<Professor> getListProfessores(String where, String[] whererArgs, String orderBy) {
         List<Professor> professores = new ArrayList<>();
 

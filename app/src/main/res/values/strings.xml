@@ -70,7 +70,6 @@
     <string name="quantidade_aulas_placeholder">00</string>
     <string name="curso_placeholder">0000/0 - Curso Descrição</string>
     <string name="ano_academico_placeholder">1º Ano</string>
-    <string name="text_view_exibir_detalhes">Clique para exibir os detalhes</string>
     <string name="status_placeholder">Status</string>
     <string name="periodo_placeholder">0000/0</string>
     <string name="curso">Curso</string>
@@ -81,7 +80,7 @@
     <string name="alunos">Alunos</string>
     <string name="disciplinas">Disciplinas</string>
     <string name="nav_grade_curricular">Grade Curricular</string>
-    <string name="detalhe_turma">Detalhe da Turma</string>
+    <string name="disciplinas_turma">Disciplinas da Turma</string>
     <string name="cad_grade_curricular">Cadastro de Grade Curricular</string>
     <string name="grade_curricular">Grade Curricular</string>
     <string name="ano_semestre_academico_placeholder">1º Ano/1º Semestre</string>
@@ -94,4 +93,18 @@
     <string name="disciplina">Disciplina</string>
     <string name="nav_lancamento_notas">Lançamento de Notas</string>
     <string name="nav_lancamento_frequencias">Lançamento de Frequências</string>
+    <string name="aula_numero">Aula Nº</string>
+    <string name="text_view_aulas_ministradas">Aulas ministradas:</string>
+    <string name="text_view_aulas_totais">Aulas totais:</string>
+    <string name="alunos_turma">Alunos da Turma</string>
+    <string name="text_view_exibir_status_disciplinas">Clique para exibir os status das disciplinas</string>
+    <string name="text_view_exibir_status_alunos">Clique para exibir os status dos alunos</string>
+    <string name="text_view_frequencia">Frequencia:</string>
+    <string name="frequencia_placeholder">100%</string>
+    <string name="text_view_primeiro_bimestre">1º Bimestre:</string>
+    <string name="nota_placeholder">100</string>
+    <string name="text_view_segundo_bimestre">2º Bimestre:</string>
+    <string name="text_view_terceiro_bimestre">3º Bimestre:</string>
+    <string name="text_view_quarto_bimestre">4º Bimestre:</string>
+    <string name="text_view_media">Média:</string>
 </resources>

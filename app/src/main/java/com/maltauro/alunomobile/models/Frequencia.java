@@ -27,10 +27,6 @@ public class Frequencia extends SugarRecord {
         this.disciplina = disciplina;
     }
 
-    public int getNumeroAula() {
-        return numeroAula;
-    }
-
     public void setNumeroAula(int numeroAula) {
         this.numeroAula = numeroAula;
     }

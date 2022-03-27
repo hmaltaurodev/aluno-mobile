@@ -76,7 +76,8 @@
 
       <!--Semestre Período-->
       <LinearLayout
-          android:id="@+id/ln_semestre_periodo_grade_curricular"
+          android:id="@+id/ln_semestre_periodo"
+          android:visibility="gone"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           style="@style/layout_spinner">
