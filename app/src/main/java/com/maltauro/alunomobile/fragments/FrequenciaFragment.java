@@ -125,10 +125,6 @@ public class FrequenciaFragment extends Fragment {
                 List<Disciplina> disciplinas = DisciplinaDAO.getListDisciplinasGradeCurricular(String.valueOf(turma.getId()));
                 ArrayAdapter adapterDisciplinas = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, disciplinas);
                 spDisciplinaFrequencia.setAdapter(adapterDisciplinas);
-
-                alunos = AlunoDAO.getListAlunosTurma(String.valueOf(turma.getId()));
-                ArrayAdapter adapterAlunos = new ArrayAdapter(activity, android.R.layout.simple_list_item_multiple_choice, alunos);
-                lvAlunoFrequencia.setAdapter(adapterAlunos);
             }
             else
                 lnDisciplinaFrequencia.setVisibility(View.GONE);
@@ -158,6 +154,11 @@ public class FrequenciaFragment extends Fragment {
 
                 ArrayAdapter adapterAulas = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, aulasNumeros);
                 spAulaFrequencia.setAdapter(adapterAulas);
+
+                long idTurma = ((Turma) spTurmaFrequencia.getSelectedItem()).getId();
+                alunos = AlunoDAO.getListAlunosTurma(String.valueOf(idTurma));
+                ArrayAdapter adapterAlunos = new ArrayAdapter(activity, android.R.layout.simple_list_item_multiple_choice, alunos);
+                lvAlunoFrequencia.setAdapter(adapterAlunos);
             }
             else {
                 lnAulaFrequencia.setVisibility(View.GONE);
